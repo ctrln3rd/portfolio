@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://austinemark.com/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!-- About Page -->
+  <url>
+    <loc>https://austinemark.com/about</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!--contact page-->
+  <url>
+    <loc>https://austinemark.com/contact</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!--Skills-->
+  <url>
+    <loc>https://austinemark.com/#skills</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!--Projects-->
+  <url>
+    <loc>https://austinemark.com/#projects</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!--nimbus now-->
+  <url>
+    <loc>https://austinemark.com/projects/nimbus-now</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!--fxpilot-->
+  <url>
+    <loc>https://austinemark.com/projects/fx-pilot</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!--gym management-->
+  <url>
+    <loc>https://austinemark.com/projects/gym-management</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>

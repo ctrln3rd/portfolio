@@ -9,9 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#121212",
+        primary: "#7B61FF",
+        secondary: "#9D4EDD",
+        text: "#EDEDED",
       },
+      fontFamily: {
+        heading: ['var(--font-orbitron)', 'sans-serif'],
+        body: ['var(--font-michroma)', 'sans-serif']
+      }
     },
   },
   plugins: [],
