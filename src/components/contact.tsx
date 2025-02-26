@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import axios from "axios";
+//import axios from "axios";
 
 export default function Contact() {
   const [contactData, setContactData] = useState({
@@ -18,7 +18,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
+    /*try {
       const response = await axios.post("/api/send-message", contactData);
       
       if (response.status === 200) {
@@ -28,30 +28,11 @@ export default function Contact() {
       }
     } catch (error) {
       console.error("Error sending message:", error);
-    }
+    }*/
   };
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "ContactPage",
-            "name": "Contact",
-            "description":
-              "Reach me out for any inquiry, request and collaboration. Receive a response in 12hrs. Let's build something extraordinary.",
-            "url": "https://austinemark.com/contact",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+254 111343665",
-              "contactType": "Customer Service",
-              "email": "info@austinemark.com",
-            },
-          }),
-        }}
-      />
       <h2 className="text-2xl font-bold text-center">TELL ME SOMETHING</h2>
       <div
         className="h-48 bg-cover bg-center mt-4"
