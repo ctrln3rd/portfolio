@@ -1,10 +1,9 @@
+'use client';
+
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setnoticetext, setnoticestatus } from "../redux/actions";
 import axios from "axios";
 
 export default function Contact() {
-  const dispatch = useDispatch();
   const [contactData, setContactData] = useState({
     name: "",
     email: "",
@@ -20,22 +19,15 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      dispatch(setnoticestatus("loading"));
-      dispatch(setnoticetext("sending message to Austine"));
-
       const response = await axios.post("/api/send-message", contactData);
       
       if (response.status === 200) {
-        dispatch(setnoticestatus("success"));
-        dispatch(setnoticetext("Message sent successfully"));
+  
       } else {
-        dispatch(setnoticestatus("error"));
-        dispatch(setnoticetext("Unknown error occurred"));
+        
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      dispatch(setnoticestatus("error"));
-      dispatch(setnoticetext("Error sending message"));
     }
   };
 
@@ -66,15 +58,6 @@ export default function Contact() {
         style={{ backgroundImage: "url(/images/back4.jpg)" }}
       ></div>
 
-      <div className="mt-6 text-center">
-        <p className="flex items-center justify-center gap-2">
-          <img src="/images/email.png" alt="Email Icon" className="w-6" />
-          info@austinemark.com
-        </p>
-        <p className="flex items-center justify-center gap-2">
-          <img src="/images/location.png" alt="Location Icon" className="w-6" />
-          Nairobi, <span>Kenya</span>
-        </p>
         <div className="flex justify-center gap-4 mt-4">
           <a
             href="https://www.linkedin.com/in/austine-mark-abb7282aa"
@@ -88,7 +71,6 @@ export default function Contact() {
           >
             WhatsApp Me
           </a>
-        </div>
       </div>
 
       <form className="mt-6 space-y-4" onSubmit={handleSubmit}>

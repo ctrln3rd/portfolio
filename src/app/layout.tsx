@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 
 const michroma = Michroma({weight: '400', subsets: ['latin'], variable: '--font-michroma'});
-const orbitron = Orbitron({subsets : ['latin'], weight: ['400'], variable: '--font-orbitron'});
+const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
 
 export const metadata: Metadata = {
   title: "Create Next App",
