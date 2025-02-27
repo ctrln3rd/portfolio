@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Michroma,  Orbitron} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const michroma = Michroma({weight: '400', subsets: ['latin'], variable: '--font-michroma'});
 const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
@@ -17,6 +18,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
       <body
       > <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

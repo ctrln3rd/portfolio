@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from "react";
+import { SmallIcon } from "./images";
 //import axios from "axios";
 
 export default function Contact() {
   const [contactData, setContactData] = useState({
     name: "",
-    email: "",
-    phone: "",
+    contact: "",
     message: "",
   });
 
@@ -39,63 +39,69 @@ export default function Contact() {
         style={{ backgroundImage: "url(/images/back4.jpg)" }}
       ></div>
 
-        <div className="flex justify-center gap-4 mt-4">
-          <a
-            href="https://www.linkedin.com/in/austine-mark-abb7282aa"
-            className="text-blue-500 hover:underline"
-          >
-            Connect on LinkedIn
-          </a>
-          <a
-            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
-            className="text-green-500 hover:underline"
-          >
-            WhatsApp Me
-          </a>
-      </div>
-
-      <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-        <h3 className="text-lg font-semibold">Leave a message *required</h3>
+      <form className="space-y-4  py-3 px-4 bg-[url('/backgrounds/back4.jpg')]" onSubmit={handleSubmit}>
+        <h3 className="text-lg font-semibold">Leave a message</h3>
+        <div className="flex gap-4">
         <input
           type="text"
           name="name"
           value={contactData.name}
           placeholder="Your name*"
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded bg-transparent border-none border-b-2"
           required
         />
         <input
-          type="email"
-          name="email"
-          value={contactData.email}
+          type="text"
+          name="contact"
+          value={contactData.contact}
           placeholder="Your email*"
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border bg-transparent border-none border-b-2 rounded"
           required
         />
-        <input
-          type="tel"
-          name="phone"
-          value={contactData.phone}
-          placeholder="Your phone number"
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+        </div>
         <textarea
           name="message"
           value={contactData.message}
           placeholder="Your message*"
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border  bg-transparent border-none  rounded"
           required
         ></textarea>
-        <input
-          type="submit"
-          value="Send"
-          className="w-full p-2 bg-blue-500 text-white font-bold rounded cursor-pointer hover:bg-blue-600"
-        />
+       <button type="submit">send<SmallIcon src="forward" alt="btn"/></button>
       </form>
+      <div className="flex justify-center gap-4 mt-4 flex-wrap">
+          <a
+            href="https://www.linkedin.com/in/austine-mark-abb7282aa"
+            className="flex hover:underline"
+          >
+            Linkedin
+            <SmallIcon src="forward" alt="btn"/>
+          </a>
+          <a
+            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
+            className="flex hover:underline"
+          >
+            WhatsApp Me
+            <SmallIcon src="forward" alt="btn"/>
+          </a>
+          <a
+            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
+            className="flex hover:underline"
+          >
+            instagram
+            <SmallIcon src="forward" alt="btn"/>
+          </a>
+          <a
+            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
+            className="flex hover:underline"
+          >
+            github
+            <SmallIcon src="forward" alt="btn"/>
+          </a>
+      </div>
+    
     </div>
   );
 }

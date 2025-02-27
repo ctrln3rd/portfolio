@@ -28,3 +28,8 @@ export function CoverImage({src, alt}: Input){
         <Image src={`${src}.jpg`} fill={true} alt={alt} sizes="100%"/>
     )
 }
+export function CoverImageNo({src, alt}: Input){
+  return(
+      <Image src={`${src}`} fill={true} alt={alt} sizes="100%"/>
+  )
+}

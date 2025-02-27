@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import { useRouter } from "next/navigation";
 import useTestimonials from "@/store/testimonials";
 import { SmallIcon } from "./images";
+import TechCarousel from "./techAnime";
 
 export default function About (){
   const router = useRouter();
@@ -19,12 +20,9 @@ export default function About (){
   };
 
   return (
-    <main className="pt-[15vh]">
-    <section id="about" className="about-section">
-      <div className="container">
-        <div className="about-content">
-          <div className="about-text">
-            <h1>About Me</h1>
+    <main className="pt-[15vh] px-10">
+    <section id="about" className="px-[10vw]">
+            <h2 className="text-3xl">About Me</h2>
             <p>
               Hi, I'm Austine Mark, a web developer, machine learning engineer, and cloud enthusiast.
               Passionate about building intelligent solutions that enhance user experience and automate processes.
@@ -33,35 +31,14 @@ export default function About (){
               With expertise in frontend and backend technologies, AI, and scalable cloud architectures,
               I bring innovative ideas to life.
             </p>
-            <button onClick={() => router.push("/contact")} className="contact-btn">
-              Get in Touch
-            </button>
-          </div>
-        </div>
-      </div>
     </section>
-    {/*<section className="py-10 text-center">
+    <section className="py-10 text-center">
             <h3 className="text-3xl max-sm:text-xl font-semibold">SOME OF THE TECHNOLOGIES I USE</h3>
-            <ul className="flex justify-center gap-4 mt-6">
-              {technologies.map((tech, index) => (
-                <li key={index}>
-                  <button onClick={() => setActiveTech(index)} className={`px-4 py-2 ${activeTech === index ? 'bg-blue-600' : 'bg-gray-700'} rounded`}>{tech.title}</button>
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-center gap-6 mt-6">
-              {technologies[activeTech].icons.map((tech, index) => (
-                <div key={index} className="text-center">
-                  <Image src={`/images/${tech.icon}`} width={50} height={50} alt={tech.name} />
-                  <p>{tech.name}</p>
-                </div>
-              ))}
-            </div>
-          </section>*/}
+          </section>
     
     {/* Testimonials Section */}
           <section className="py-10 text-center w-full px-7 max-sm:px-3">
-            <h3 className="text-3xl text-end max-sm:text-xl font-semibold">WHAT OTHER PEOPLE ARE SAYING ABOUT ME</h3>
+            <h3 className="text-2xl text-end max-sm:text-xl font-semibold">WHAT OTHER PEOPLE ARE SAYING ABOUT ME</h3>
             <div className="mt-6">
               {testimonials.length > 0 && (
                 <div className="relative bg-[url('/backgrounds/back2.jpg')] py-5 px-7 rounded-lg mx-auto max-w-4xl flex flex-col">
