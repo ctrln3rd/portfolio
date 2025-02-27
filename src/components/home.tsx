@@ -3,12 +3,15 @@
 import React from 'react';
 import { CoverImage, CoverImageNo, SmallIcon } from './images';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 export default function Home() {
   
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative h-dvh flex flex-col items-center justify-between bg-cover bg-center pt-[15vh] pb-10 px-5">
+      <motion.div
+       initial={{opacity: 0, y: 20}}
+       animate={{opacity: 1, y: 0}}
+       transition={{duration: 0.8, ease: 'easeOut'}}
+       className="relative h-dvh flex flex-col items-center justify-between bg-cover bg-center pt-[15vh] pb-10 px-5">
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-cover bg-center bg-opacity-50  w-[480px] h-[410px]
         max-sm:w-[300px] max-sm:h-[250px] shadow-primary shadow-2xl rounded-3xl">
           <CoverImageNo src='/backgrounds/back9.png' alt='background image'/>
@@ -26,7 +29,6 @@ export default function Home() {
           <Link href="/projects" className="px-4 py-2 rounded-lg border-y-2 bg-gradient-to-tl from-primary to-transparent to-15%">creations</Link>
         </div>
         </div>*/}
-      </section>
-    </main>
+      </motion.div>
   );
 }

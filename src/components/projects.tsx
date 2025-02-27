@@ -24,7 +24,10 @@ export default function Projects(){
         setselectedProject(projects.find(p =>p.id === id) || null)
     }
     return(
-        <div className="flex flex-col gap-5 pt-[15dvh] px-5">
+        <motion.div
+               initial={{opacity: 0, y: 20}}
+               animate={{opacity: 1, y: 0}}
+               transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col gap-5 pt-[15dvh] px-5">
             <h2>projects</h2>
             <div className="noscrollbar flex flex-row gap-10 items-center justify-center overflow-x-auto overflow-y-hidden" id="projects">
                 {projects.map((project)=> (
@@ -61,6 +64,6 @@ export default function Projects(){
             }
             </AnimatePresence>
             
-        </div>
+        </motion.div>
     )
 }

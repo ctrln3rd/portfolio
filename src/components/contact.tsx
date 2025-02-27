@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { SmallIcon } from "./images";
+import { motion } from "framer-motion";
 //import axios from "axios";
 
 export default function Contact() {
@@ -32,7 +33,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <motion.div
+       initial={{opacity: 0, y: 20}}
+       animate={{opacity: 1, y: 0}}
+       transition={{duration: 0.8, ease: 'easeOut'}} className="p-6 max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold text-center">TELL ME SOMETHING</h2>
       <div
         className="h-48 bg-cover bg-center mt-4"
@@ -102,6 +106,6 @@ export default function Contact() {
           </a>
       </div>
     
-    </div>
+    </motion.div>
   );
 }

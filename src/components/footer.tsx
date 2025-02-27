@@ -38,15 +38,15 @@ export default function Footer(){
                 </div>}
             {pathname === '/projects' && <div className="flex gap-3">
             <button onClick={scrollprojectsLeft}
-                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50"><SmallIcon src="forward" alt="right>"/></button>
+                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
             <button onClick={scrollprojectsRight}
-            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50"><SmallIcon src="forward" alt="right>"/></button>
+            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
             </div>}
             {pathname === '/skills' && <div className="flex gap-3">
             <button onClick={scrollskillsLeft}
-                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50"><SmallIcon src="forward" alt="right>"/></button>
+                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
             <button onClick={scrollskillsRight}
-            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50"><SmallIcon src="forward" alt="right>"/></button>
+            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
             </div>}
             
             <motion.div

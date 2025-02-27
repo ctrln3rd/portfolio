@@ -1,8 +1,14 @@
 'use client';
 import { BigIcon } from "./images"
+import { motion } from "framer-motion";
+
+
 export default function Skills(){
     return(
-        <main className="pt-[15vh] text-center px-4">
+        <motion.div
+        initial={{opacity: 0, y: 20}}
+        animate={{opacity: 1, y: 0}}
+        transition={{duration: 0.8, ease: 'easeOut'}} className="pt-[15vh] text-center px-4">
                 <h3 className="text-3xl font-semibold max-sm:text-xl text-start">WHAT I'M BEST IN</h3>
                 <div className="noscrollbar flex justify-center gap-8 mt-6 items-stretch overflow-x-auto overflow-y-hidden" id="skills">
                   <div className="skill">
@@ -28,7 +34,7 @@ export default function Skills(){
                     <BigIcon src='ml1' alt='image'/>
                   </div>
                 </div>
-              </main>
+              </motion.div>
         
     )
 }

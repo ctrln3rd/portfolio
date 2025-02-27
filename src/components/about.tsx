@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import { useRouter } from "next/navigation";
 import useTestimonials from "@/store/testimonials";
 import { SmallIcon } from "./images";
-import TechCarousel from "./techAnime";
+import { motion } from "framer-motion";
 
 export default function About (){
   const router = useRouter();
@@ -20,7 +20,10 @@ export default function About (){
   };
 
   return (
-    <main className="pt-[15vh] px-10">
+    <motion.main
+       initial={{opacity: 0, y: 20}}
+       animate={{opacity: 1, y: 0}}
+       transition={{duration: 0.8, ease: 'easeOut'}} className="pt-[15vh] px-10">
     <section id="about" className="px-[10vw]">
             <h2 className="text-3xl">About Me</h2>
             <p>
@@ -56,7 +59,7 @@ export default function About (){
               </div>
             </div>
           </section>
-    </main>
+    </motion.main>
   );
 };
 
