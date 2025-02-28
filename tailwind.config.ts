@@ -12,6 +12,7 @@ export default {
         background: "#121212",
         primary: "#7B61FF",
         secondary: "#9D4EDD",
+        card: '#1B1B1B',
         text: "#EDEDED",
       },
       fontFamily: {

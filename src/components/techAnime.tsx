@@ -13,7 +13,7 @@ const techStack = [
 ]
 
 export default function TechCarousel(){
-    const radius = 150;
+    const radius = 130;
     const [angle, setAngle] = useState<number>(0);
     const [hoveredTech, setHoveredTech] = useState<string | null>(null)
     const [paused, setPuased] = useState<boolean>(false);
@@ -26,7 +26,7 @@ export default function TechCarousel(){
         return ()=> clearInterval(interval)
     }, [paused])
     return(
-        <motion.div className='relative w-[50vw] h-[200px] flex items-center justify-center'
+        <motion.div className='relative w-[50vw] flex items-center justify-center '
         animate={{rotateY: paused ? 0 : angle * (180/Math.PI)}}
         transition={{duration: 1}}
         onMouseEnter={()=>setPuased(true)}
@@ -47,8 +47,8 @@ export default function TechCarousel(){
                     transition={{duration: 0.5}}
                     onMouseEnter={()=>setHoveredTech(tech.name)}
                     >
-                     <img src={`/icons/${tech.src}.svg`} alt={tech.name} className='w-[50px] h-[50px] max-sm:w-8 max-sm:h-8'/>
-                    </motion.div>
+                     <img src={`/icons/${tech.src}.svg`} alt={tech.name} className='w-10 h-10 max-sm:w-8 max-sm:h-8'/>
+                    </motion.div> 
                 )
             })}
             {hoveredTech && (

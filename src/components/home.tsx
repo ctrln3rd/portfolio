@@ -20,15 +20,11 @@ export default function Home() {
         <h2 className="text-3xl max-sm:text-">SMART WEB <br/> AND APPS</h2>
         <p className="opacity-70">Web apps, bots, software, innovation, coffee, fun</p>
         </div>
-       {/*<div className='z-10 w-full flex flex-row justify-between max-sm:flex-col'>
-        <div><h3>I'm <span className='text-primary'>Austine</span></h3>
+        <div className='fixed z-50 bottom-0 left-0 pl-20 pb-8 text-base max-sm:pl-3'>
+          <h3>I'm <span className='text-primary'>Austine</span></h3>
         <button className='flex items-center gap-2'><span className='opacity-70'>resume</span> <SmallIcon src='forward' alt='click'/></button>
         </div>
-        <div className="flex gap-4 items-center mt-4 max-sm:self-end">
-          <Link href="/skills" className="px-2 py-1 rounded-lg border-x-2 bg-gradient-to-br from-primary to-transparent to-15%">expertise</Link>
-          <Link href="/projects" className="px-4 py-2 rounded-lg border-y-2 bg-gradient-to-tl from-primary to-transparent to-15%">creations</Link>
-        </div>
-        </div>*/}
+      
       </motion.div>
   );
 }

@@ -37,11 +37,6 @@ export default function Contact() {
        initial={{opacity: 0, y: 20}}
        animate={{opacity: 1, y: 0}}
        transition={{duration: 0.8, ease: 'easeOut'}} className="p-6 max-w-3xl mx-auto">
-      <h2 className="text-2xl font-bold text-center">TELL ME SOMETHING</h2>
-      <div
-        className="h-48 bg-cover bg-center mt-4"
-        style={{ backgroundImage: "url(/images/back4.jpg)" }}
-      ></div>
 
       <form className="space-y-4  py-3 px-4 bg-[url('/backgrounds/back4.jpg')]" onSubmit={handleSubmit}>
         <h3 className="text-lg font-semibold">Leave a message</h3>
@@ -75,37 +70,16 @@ export default function Contact() {
         ></textarea>
        <button type="submit">send<SmallIcon src="forward" alt="btn"/></button>
       </form>
-      <div className="flex justify-center gap-4 mt-4 flex-wrap">
-          <a
-            href="https://www.linkedin.com/in/austine-mark-abb7282aa"
-            className="flex hover:underline"
-          >
-            Linkedin
-            <SmallIcon src="forward" alt="btn"/>
-          </a>
-          <a
-            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
-            className="flex hover:underline"
-          >
-            WhatsApp Me
-            <SmallIcon src="forward" alt="btn"/>
-          </a>
-          <a
-            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
-            className="flex hover:underline"
-          >
-            instagram
-            <SmallIcon src="forward" alt="btn"/>
-          </a>
-          <a
-            href="https://wa.me/254111343665?text=Hello%20lil_musk%20"
-            className="flex hover:underline"
-          >
-            github
-            <SmallIcon src="forward" alt="btn"/>
-          </a>
-      </div>
-    
+      <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex flex-col gap-1 items-start">
+        <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  hover:underline">Linkedin
+          <SmallIcon src="visit" alt="btn"/></a>
+        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">WhatsApp Me
+          <SmallIcon src="visit" alt="btn"/></a>
+        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">instagram
+          <SmallIcon src="visit" alt="btn"/></a>
+        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">github
+          <SmallIcon src="visit" alt="btn"/></a>
+        </div>
     </motion.div>
   );
 }

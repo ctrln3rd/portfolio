@@ -23,28 +23,38 @@ export default function Projects(){
         setselectedProject(null)
         setselectedProject(projects.find(p =>p.id === id) || null)
     }
+    const handlescroll = (event: React.UIEvent<HTMLDivElement>)=>{
+        const currentDiv = event.currentTarget;
+        const {scrollLeft, scrollWidth, clientWidth} = currentDiv
+        if(scrollLeft <= 0){
+            currentDiv.scrollLeft = scrollWidth
+        }else if(scrollLeft + clientWidth >= scrollWidth){
+            currentDiv.scrollLeft = 0
+        }
+    }
+    const scrollRight = ()=>{
+        const currentDiv = document.getElementById('projects')
+            currentDiv?.scrollBy({left: 200, behavior: 'smooth'})
+    }
+    const scrollLeft = ()=>{
+        const currentDiv = document.getElementById('projects')
+            currentDiv?.scrollBy({left: -200, behavior: 'smooth'})
+    }
     return(
         <motion.div
                initial={{opacity: 0, y: 20}}
                animate={{opacity: 1, y: 0}}
-               transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col gap-5 pt-[15dvh] px-5">
-            <h2>projects</h2>
-            <div className="noscrollbar flex flex-row gap-10 items-center justify-center overflow-x-auto overflow-y-hidden" id="projects">
-                {projects.map((project)=> (
-                    <div key={project.id}onMouseOver={()=>handleMouseEnter(project.id)} className="relative w-full h-[300px]">
-                        <div className="absolute inset-0"><CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
-                        <div className={`absolute bottom-0 w-full bg-[linear-gradient(to_bottom,rgb(18,18,18,0.4)_0%,rgb(18,18,18,0.8)_100%)]  
-                            backdrop-blur-sm px-5 py-4  shadow-xl shadow-primary`}>
-                        <h3 className="font-semibold">{project.title}</h3>
-                        <div className="flex justify-between">
-                        <a  className="text-sm" href={project.github}>github</a>
-                        <a className="text-sm flex items-center" href={project.link}>live project <SmallIcon src="forward" alt="go"/></a>
-                        </div>
-                        </div>
+               transition={{duration: 0.8, ease: 'easeOut'}} className="flex items-center px-5 h-[80dvh] max-sm:px-2">
+            <div className="w-full flex justify-center items-center">
+           <div className="noscrollbar flex flex-row gap-10 items-center overflow-x-auto overflow-y-hidden" id="projects">
+                {projects.map((project, index)=> (
+                    <div key={index}>
+                    <ProjectDiv project={project}/>
                     </div>
                 ))}
             </div>
-            <AnimatePresence>
+            </div>
+            {/*<AnimatePresence>
             {selectedProject &&  <motion.div className={`self-center flex flex-col gap-4 
             items-start justify-center max-w-[50%] shadow-sm shadow-primary p-2 max-sm:max-w-[85%]`}
                     initial={{opacity: 0}}
@@ -62,8 +72,36 @@ export default function Projects(){
                         </ul>
                     </motion.div>
             }
-            </AnimatePresence>
+            </AnimatePresence>*/}
+        <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3">
+            <button onClick={scrollLeft}
+                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
+            <button onClick={scrollRight}
+            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
+            </div>
             
         </motion.div>
+    )
+}
+
+function ProjectDiv({project}: Project | any){
+    const [ishoved, setishoved] = useState<boolean>(false);
+    return(
+        <div key={project.id} onMouseOver={()=>setishoved(true)}  onMouseOut={()=>setishoved(false)} 
+        className="flex flex-col gap-2 px-7 py-4 bg-card max-sm:px-4 max-sm:py-2 rounded-xl">
+            <div className="relative w-80 h-44 max-sm:w-64 max-sm:h-40"><CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
+            <div className="flex flex-col gap-4">
+                <h3 className="font-semibold text-lg">{project.title}</h3>
+                <div className="flex items-center justify-between">
+                <a  className="text-xs" href={project.github}>github</a>
+                <a className="text-xs flex items-center border border-primary border-opacity-30 px-3 py-1 max-sm:px-2 rounded" href={project.link}>
+                    live project <SmallIcon src="visit" alt="go"/></a>
+                </div>
+            </div>
+            {ishoved && <div className="max-w-60 pt-2 px-1 border-t-2 border-primary">
+                <p className="text-wrap">{project.description}</p>
+            </div>}
+        </div>
+
     )
 }
