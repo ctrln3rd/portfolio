@@ -1,6 +1,6 @@
 'use client';
 import useProjects from "@/store/projects"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { CoverImage, SmallIcon } from "./images";
 import { motion , AnimatePresence} from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,6 +24,15 @@ export default function Projects(){
     const projects = useProjects
     const swiperRef = useRef<any>(null)
     const [selectedProject, setselectedProject] = useState<Project | null>(null)
+    const [spaceBetween, setSpaceBetween] = useState(-3); // Default value
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+          setSpaceBetween(window.innerWidth > 768 ? -10 : -3);
+        }
+      }, []);
+    
+
     const handleSeclect =(id: number)=>{
         setselectedProject(null)
         setselectedProject(projects.find(p =>p.id === id) || null)
@@ -36,7 +45,7 @@ export default function Projects(){
              <Swiper
                modules={[Navigation]}
                initialSlide={1}
-               spaceBetween={window.innerWidth > 768 ? -10: -3}
+               spaceBetween={spaceBetween}
                slidesPerView={'auto'}
                centeredSlides
               onSwiper={(swiper)=>(swiperRef.current = swiper)}
