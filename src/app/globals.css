@@ -29,15 +29,3 @@ h1, h2, h3, h4, h5, h6{
   display: none;
 
 }
-@layer utilities {
-  .orbit-nav {
-    /*transform-origin: 50% calc(100% + var(--origin-distance, 50%))
-    transform: rotate(var(--orbit-angle, 0deg)) translate(var(--orbit-distance, 100px)) rotate(calc(-1 * var(--orbit-angle, 0deg)));*/
-    @apply absolute text-xs m-0 p-0 transition-all border;
-  }
-  .orbit-dot {
-    @apply absolute;
-    transition: transform 0.3s ease-in-out;
-    transform-origin: 50% calc(100% + var(--orbit-distance, 50%));
-  }
-}

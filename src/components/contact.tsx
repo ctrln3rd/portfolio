@@ -33,10 +33,10 @@ export default function Contact() {
   };
 
   return (
-    <motion.div
+    <motion.main
        initial={{opacity: 0, y: 20}}
        animate={{opacity: 1, y: 0}}
-       transition={{duration: 0.8, ease: 'easeOut'}} className="p-6 max-w-3xl mx-auto">
+       transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col justify-center h-[90dvh] items-center p-6 max-w-3xl mx-auto">
 
       <form className="space-y-4  py-3 px-4 bg-[url('/backgrounds/back4.jpg')]" onSubmit={handleSubmit}>
         <h3 className="text-lg font-semibold">Leave a message</h3>
@@ -68,18 +68,18 @@ export default function Contact() {
           className="w-full p-2 border  bg-transparent border-none  rounded"
           required
         ></textarea>
-       <button type="submit">send<SmallIcon src="forward" alt="btn"/></button>
+       <button type="submit" className="flex items-center gap-1">send<SmallIcon src="forward" alt="btn"/></button>
       </form>
-      <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex flex-col gap-1 items-start">
-        <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  hover:underline">Linkedin
+      <div className="fixed z-50 bottom-0 left-0 pl-20 pb-3 flex flex-col gap-1 items-start max-sm:pl-2">
+        <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  hover:underline">linkedin
           <SmallIcon src="visit" alt="btn"/></a>
-        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">WhatsApp Me
+        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">whatsapp
           <SmallIcon src="visit" alt="btn"/></a>
         <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">instagram
           <SmallIcon src="visit" alt="btn"/></a>
         <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">github
           <SmallIcon src="visit" alt="btn"/></a>
         </div>
-    </motion.div>
+    </motion.main>
   );
 }
