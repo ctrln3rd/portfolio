@@ -17,7 +17,7 @@ export default function Header(){
             <h2>ABOUT ME</h2></div>}
             {pathname === '/contact' && <div className="flex items-center gap-1"> 
                 <span className="text-4xl w-2 h-2 bg-secondary rounded-full"></span>
-            <h2>CONTACT ME</h2></div>}
+            <h2>CONNECT WITH ME</h2></div>}
             {pathname === '/projects' && <div className="flex items-center gap-1"> 
                 <span className="text-4xl w-2 h-2 bg-primary rounded-full"></span>
             <h2>MY CREATIONS</h2></div>}

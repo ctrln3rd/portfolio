@@ -72,16 +72,16 @@ export default function Footer(){
             >
                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[50%] h-[50%]
                 border border-gray-500 rounded-full max-sm:w-[40%] max-sm:h-[40%]"></div>
-                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-primary rounded-full max-sm:w-1 max-sm:h-1"
-                animate={{x: navItems[activeIndex].x * size *0.9, y: navItems[activeIndex].y * size *0.9}}
+                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-primary rounded-full max-sm:w-[5px] max-sm:h-[5px]"
+                animate={{x: navItems[activeIndex]?.x  * size *0.9, y: navItems[activeIndex]?.y  * size *0.9}}
                 transition={{
                     type: 'spring',
                     stiffness: 100,
                     damping: 10
                 }}
                 ></motion.div>
-                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-secondary rounded-full max-sm:w-1 max-sm:h-1"
-                animate={{x: navItems[activeIndex].x * size *0.3, y: navItems[activeIndex].y * size *0.3}}
+                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-secondary rounded-full max-sm:w-[5px] max-sm:h-[5px]"
+                animate={{x: navItems[activeIndex]?.x  * size *0.3, y: navItems[activeIndex]?.y * size *0.3}}
                 transition={{
                     type: 'spring',
                     stiffness: 100,

@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import { useRouter } from "next/navigation";
 import useTestimonials from "@/store/testimonials";
 import { motion } from "framer-motion";
+import { CoverImage } from "./images";
 
 
 interface Testimonial {
@@ -35,9 +36,9 @@ export default function About (){
             <div className="flex  flex-col items-start gap-3">
               I specialize in:
               <ul className="flex flex-col gap-4 items-start">
-              <li className="font-bold">WEB DEVELOPMENT</li> 
-              <li className="font-bold">MACHINE LEARNING</li>
-              <li className="font-bold">CLOUD COMPUTING</li>
+              <li className="opacity-80">{'>>>'} WEB DEVELOPMENT</li> 
+              <li className="opacity-80">{'>>>'} MACHINE LEARNING</li>
+              <li className="opacity-80">{'>>>'} CLOUD COMPUTING</li>
               </ul>
               I bring innovative ideas to life.
             </div>
@@ -46,18 +47,20 @@ export default function About (){
         <h4 className="text-primary text-base font-bold">WHAT THEY SAY: </h4>
         <ul className="flex gap-5 flex-wrap max-sm:gap-2">
           {testimonials.map((t, i)=>(
-            <li key={i} className="bg-background px-3 py-1 rounded cursor-pointer" onMouseOver={()=>setHoveredTestim(t)}>{t.name}</li>
+            <li key={i} className={`bg-background px-3 py-1 rounded cursor-pointer 
+              ${hoveredTestim?.id === t.id && 'text-secondary' }`} onClick={()=>setHoveredTestim(t)}>{t.name}</li>
           ))}
         </ul>
-        {hoveredTestim && <div className="flex flex-col gap-2 max-w-[70%] max-sm:self-center max-sm:max-w-[90%] text-xs
-        px-3 rounded shadow-sm shadow-primary">
-            <p className='z-10 relative self-start '>{hoveredTestim.title} | 
+        {hoveredTestim && <div className="flex flex-col gap-2 max-w-[70%] max-sm:self-center max-sm:max-w-[90%] text-xs mt-2
+        px-3 py-1 rounded shadow-sm shadow-primary">
+            <p className='z-10 relative self-start flex gap-1 '>{hoveredTestim.title} | 
               <span className='text-primary'>{hoveredTestim.company}</span></p>
             <p className="mt-4 z-10 relative self-end text-end ">{hoveredTestim.content}</p>
           </div>}
 
       </div>
     </section>
+    <div className="fixed left-7 bottom-5 w-28 h-28 rounded-full bg-[url('/me.jpg')] bg-center bg-cover max-sm:left-2 max-sm:w-16 max-sm:h-16"></div>
 
     </motion.main>
   );

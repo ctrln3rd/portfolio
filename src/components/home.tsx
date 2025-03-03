@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { CoverImage, CoverImageNo, SmallIcon } from './images';
-import Link from 'next/link';
+import { CoverImageNo, SmallIcon } from './images';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+
 export default function Home() {
-  
   return (
       <motion.main
        initial={{opacity: 0, y: 20}}
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className='fixed z-50 bottom-0 left-0 pl-20 pb-8 text-base max-sm:pl-3'>
           <h3>I'm <span className='text-primary'>Austine</span></h3>
-        <button className='flex items-center gap-2'><span className='opacity-70'>resume</span> <SmallIcon src='forward' alt='click'/></button>
+          <Link href={'/projects'} className='flex gap-1 items-center max-sm:text-sm'><span className='opacity-70'>lil musk</span><SmallIcon src='forward' alt='click'/></Link>    
         </div>
       
       </motion.main>

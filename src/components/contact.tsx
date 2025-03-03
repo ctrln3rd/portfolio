@@ -36,50 +36,23 @@ export default function Contact() {
     <motion.main
        initial={{opacity: 0, y: 20}}
        animate={{opacity: 1, y: 0}}
-       transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col justify-center h-[90dvh] items-center p-6 max-w-3xl mx-auto">
-
-      <form className="space-y-4  py-3 px-4 bg-[url('/backgrounds/back4.jpg')]" onSubmit={handleSubmit}>
-        <h3 className="text-lg font-semibold">Leave a message</h3>
-        <div className="flex gap-4">
-        <input
-          type="text"
-          name="name"
-          value={contactData.name}
-          placeholder="Your name*"
-          onChange={handleChange}
-          className="w-full p-2 border rounded bg-transparent border-none border-b-2"
-          required
-        />
-        <input
-          type="text"
-          name="contact"
-          value={contactData.contact}
-          placeholder="Your email*"
-          onChange={handleChange}
-          className="w-full p-2 border bg-transparent border-none border-b-2 rounded"
-          required
-        />
-        </div>
-        <textarea
-          name="message"
-          value={contactData.message}
-          placeholder="Your message*"
-          onChange={handleChange}
-          className="w-full p-2 border  bg-transparent border-none  rounded"
-          required
-        ></textarea>
-       <button type="submit" className="flex items-center gap-1">send<SmallIcon src="forward" alt="btn"/></button>
-      </form>
-      <div className="fixed z-50 bottom-0 left-0 pl-20 pb-3 flex flex-col gap-1 items-start max-sm:pl-2">
-        <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  hover:underline">linkedin
+       transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col justify-center gap-7 h-[90dvh] items-center">
+      <section className="bg-card flex flex-col items-start gap-3 py-5 px-8 rounded-lg max-sm:px-5">
+      <p className="font-bold">Only active on these : </p>
+      <div className="flex flex-col gap-3 items-stretch">
+        <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  px-4 py-1 border justify-center
+          border-primary border-opacity-30 items-center hover:underline max-sm:text-xs">LINKEDIN
           <SmallIcon src="visit" alt="btn"/></a>
-        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">whatsapp
+          <div className="flex gap-4">
+        <a href="https://www.instagram.com/lil_musk101?igsh=YzljYTk1ODg3Zg==" className="flex px-4 py-1 border
+          border-secondary border-opacity-30 items-center hover:underline max-sm:text-xs">INSTAGRAM
           <SmallIcon src="visit" alt="btn"/></a>
-        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">instagram
-          <SmallIcon src="visit" alt="btn"/></a>
-        <a href="https://wa.me/254111343665?text=Hello%20lil_musk%20" className="flex hover:underline">github
+        <a href="https://github.com/austinemark001" className="flex px-4 py-1 border
+          border-secondary border-opacity-30 items-center hover:underline max-sm:text-xs">GITHUB
           <SmallIcon src="visit" alt="btn"/></a>
         </div>
+        </div>
+        </section>
     </motion.main>
   );
 }

@@ -15,9 +15,8 @@ interface Project {
     description: string;  
     date?: string;  
     link?: string;  
-    github?: string;  
-    technologyUsed: string[];  
-    features: string[];  // ✅ List of key features  
+    github?: string; 
+    client?: string[];   
 }
 
 export default function Projects(){
@@ -60,14 +59,15 @@ export default function Projects(){
                     transition={{duration: 0.5,ease: 'easeOut'}}
                     className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-3 py-4 w-auto"
                     >
-                    <div className="self-center relative w-full h-[30vh]  max-sm:h-28">
+                    <div className="self-center relative w-full h-[30vh] max-sm:h-[15vh] max-md:h-[22vh]">
                     <CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
                     <div className="flex flex-col gap-4">
                         <h3 className="flex gap-3 font-semibold text-lg max-sm:text-base">{project.title} 
                             <div onClick={()=> handleSeclect(project.id)} className="rotate-90 cursor-pointer"><SmallIcon src="forward" alt="details"/></div></h3>
                         <div className="flex items-center justify-between">
-                        <a  className="text-xs" href={project.github}>github</a>
-                        <a className="text-xs flex items-center border border-primary border-opacity-30 px-3 py-1 max-sm:px-2 rounded" href={project.link}>
+                        <a  className={`text-xs ${!project.github && 'opacity-40'}`}href={project.github}>github</a>
+                        <a className={`text-xs flex items-center border border-primary 
+                        border-opacity-30 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
                             live project <SmallIcon src="visit" alt="go"/></a>
                         </div>
                     </div>
