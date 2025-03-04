@@ -33,8 +33,10 @@ export const metadata: Metadata = {
     title: 'Austine Mark |The Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
     images :  ['https://austinemark.netlify.app/preview.jpg']
-  }
-  ,
+  },
+  alternates: {
+    canonical: 'https://austinemark.netlify.app'
+  },
   other: {
     'google-site-verification': "LUkKqWSPj-9G4-wQcv2ohaT20kb7pKJqAv9eM24m2H8"
   }
