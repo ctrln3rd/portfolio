@@ -1,14 +1,10 @@
 'use client';
 import Link from "next/link"
-import { motion, useAnimationControls } from "framer-motion"
+import { motion } from "framer-motion"
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState, useRef } from "react";
 
-type NavInputs = {
-    href: string;
-    label: string;
-    angle: number;
-}
+
 interface NavItem{
     name: string;
     path: string;

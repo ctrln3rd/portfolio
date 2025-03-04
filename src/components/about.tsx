@@ -1,11 +1,8 @@
 'use client';
 
 import React, {useState} from "react";
-import { useRouter } from "next/navigation";
 import useTestimonials from "@/store/testimonials";
 import { motion } from "framer-motion";
-import { CoverImage } from "./images";
-
 
 interface Testimonial {
   id: number;
@@ -17,9 +14,7 @@ interface Testimonial {
 }
 
 export default function About (){
-  const router = useRouter();
   const testimonials = useTestimonials;
-  const [testimIndex, setTestimIndex] = useState(0);
   const [hoveredTestim, setHoveredTestim] = useState<Testimonial | null>(null)
 
   return (
@@ -60,7 +55,8 @@ export default function About (){
 
       </div>
     </section>
-    <div className="fixed left-7 bottom-5 w-28 h-28 rounded-full bg-[url('/me.jpg')] bg-center bg-cover max-sm:left-2 max-sm:w-16 max-sm:h-16"></div>
+    <div className="fixed left-7 bottom-5 w-36 h-36 rounded-full bg-[url('/me.jpg')] 
+    bg-center bg-cover max-md:w-28 max-md:h-28 max-sm:left-2 max-sm:w-24 max-sm:h-24"></div>
 
     </motion.main>
   );
