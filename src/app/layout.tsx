@@ -9,7 +9,7 @@ const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
 
 export const metadata: Metadata = {
   title: {
-    default: 'Austine Mark | Developer',
+    default: 'Austine Mark |The Developer',
     template: '%s | Austine Mark - The Developer'
   },
   description: "A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work",
@@ -21,9 +21,17 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png'
   },
   openGraph:{
+    title: 'Austine Mark |The Developer',
+    description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
+    url: 'https://austinemark.netlify.app',
+    siteName: 'Austine Mark',
+    type: 'website',
     images: ['https://austinemark.netlify.app/preview.jpg']
   },
   twitter: {
+    card: 'summary_large_image',
+    title: 'Austine Mark |The Developer',
+    description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
     images :  ['https://austinemark.netlify.app/preview.jpg']
   }
   ,
