@@ -47,7 +47,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
     <html lang="en" className={`${grotesk.variable} ${orbitron.variable}`}>
       <body> 
         <div className="w-[97dvw] h-[97dvh] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-         rounded-lg max-sm:h-[98dvh] bg-background_secondary">
+         rounded-lg bg-background_secondary">
         <Header/>
         {children}
         <Footer/>

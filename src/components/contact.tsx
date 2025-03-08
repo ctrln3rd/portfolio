@@ -15,14 +15,14 @@ export default function Contact() {
       <p className="font-bold">Only active on these : </p>
       <div className="flex flex-col gap-3 items-stretch">
         <a href="https://www.linkedin.com/in/austine-mark-abb7282aa"  className="flex  px-4 py-1 border  gap-1 justify-center
-          border-primary border-opacity-30 items-center hover:underline max-sm:text-xs">LINKEDIN
+          border-primary border-opacity-30 items-center hover:underline">LINKEDIN
          <span className="text-xl">&#8599;</span></a>
           <div className="flex gap-4">
         <a href="https://www.instagram.com/lil_musk101?igsh=YzljYTk1ODg3Zg==" className="flex px-4 py-1 border gap-1
-          border-secondary border-opacity-30 items-center hover:underline max-sm:text-xs">INSTAGRAM
+          border-secondary border-opacity-30 items-center hover:underline">INSTAGRAM
           <span className="text-xl">&#8599;</span></a>
         <a href="https://github.com/austinemark001" className="flex px-4 py-1 border gap-1
-          border-secondary border-opacity-30 items-center hover:underline max-sm:text-xs">GITHUB
+          border-secondary border-opacity-30 items-center hover:underline">GITHUB
           <span className="text-xl">&#8594;</span></a>
         </div>
         </div>
