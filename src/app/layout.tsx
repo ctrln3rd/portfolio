@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Austine Mark - The Developer'
   },
   description: "A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work",
-  keywords: ['web development', 'AI', 'Machine learning', 'cloud computing', 
+  keywords: ['web development', 'AI', 'Machine learning', 'cloud computing', 'austine mark', 'nextjs developer',
     'best portfolio website', 'frontend developer', 'tech enthusiast', 'computer science', 'muranga university', 'young coder'],
   icons: {
     icon: '/favicon.ico',
