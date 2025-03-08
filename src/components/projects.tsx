@@ -63,12 +63,13 @@ export default function Projects(){
                     <CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
                     <div className="flex flex-col gap-4">
                         <h3 className="flex gap-3 font-semibold text-lg max-sm:text-base">{project.title} 
-                            <div onClick={()=> handleSeclect(project.id)} className="rotate-90 cursor-pointer"><SmallIcon src="forward" alt="details"/></div></h3>
+                            <div onClick={()=> handleSeclect(project.id)} className="opacity-50 cursor-pointer">{'>>'}
+                            </div></h3>
                         <div className="flex items-center justify-between">
-                        <a  className={`text-xs ${!project.github && 'opacity-40'}`}href={project.github}>github</a>
-                        <a className={`text-xs flex items-center border border-primary 
-                        border-opacity-30 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
-                            live project <SmallIcon src="visit" alt="go"/></a>
+                        <a  className={`${!project.github && 'opacity-40'}`}href={project.github}>github</a>
+                        <a className={`flex items-center border border-borders
+                        border-opacity-45 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
+                            live project {/*<SmallIcon src="visit" alt="go"/>*/} <span className="text-xl">&#8599;</span></a>
                         </div>
                     </div>
                     </motion.div>)}
@@ -90,11 +91,11 @@ export default function Projects(){
                     </motion.div>
             }
             </AnimatePresence>
-        <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3">
+        <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3 text-lg">
             <button onClick={()=>swiperRef.current?.slidePrev()}
-                className="flex gap-1 items-center rotate-180 px-3 py-1 border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
+                className="flex gap-1 items-center px-3 py-1 border border-primary border-opacity-50 rounded">&#8592;</button>
             <button onClick={()=>swiperRef.current?.slideNext()}
-            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded"><SmallIcon src="forward" alt="right>"/></button>
+            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded">&#8594;</button>
             </div>
             
         </motion.main>

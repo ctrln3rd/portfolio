@@ -59,8 +59,7 @@ export default function Footer(){
 
 
     return(
-        <footer className={`fixed bottom-0 right-0 flex justify-center items-center z-40 h-auto px-16 py-8 min-w-[30%]
-            bg-gradient-to-tl from-primary/25 via-background/60 to-transparent backdrop-blur-sm`}>
+        <footer className={`fixed bottom-0 right-0 flex justify-center items-center z-40 h-auto px-16 py-8 min-w-[30%]`}>
             <motion.div
             className="relative flex items-center justify-center w-32 h-32 max-sm:w-20 max-sm:h-20  border border-gray-500 rounded-full"
             ref={navcontainerRef}
@@ -86,7 +85,7 @@ export default function Footer(){
                 ></motion.div>
                 {navItems.map((item, index)=>(
                     <motion.div key={index} ref={(el)=> {(itemRefs.current as {[key: string]: HTMLDivElement | null})[item.name] = el}}
-                    className="absolute text-xs flex justify-center font-semibold items-center max-sm:text-[0.6rem] hover:text-secondary"
+                    className="absolute text-xs flex justify-center font-semibold items-center hover:text-secondary"
                     animate={{x: trans[item.name]?.xt || 0, y: trans[item.name]?.yt || 0}}>
                     <Link href={item.path}
                     >{item.name.toUpperCase()}</Link>

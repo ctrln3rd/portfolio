@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Michroma,  Orbitron} from "next/font/google";
+import { Space_Grotesk,  Orbitron} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const michroma = Michroma({weight: '400', subsets: ['latin'], variable: '--font-michroma'});
+const grotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-grotesk'});
 const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
 
 export const metadata: Metadata = {
   title: {
-    default: 'Austine Mark |The Developer',
+    default: 'Austine Mark | The Developer',
     template: '%s | Austine Mark - The Developer'
   },
   description: "A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png'
   },
   openGraph:{
-    title: 'Austine Mark |The Developer',
+    title: 'Austine Mark | The Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
     url: 'https://austinemark.netlify.app',
     siteName: 'Austine Mark',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Austine Mark |The Developer',
+    title: 'Austine Mark | The Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
     images :  ['https://austinemark.netlify.app/preview.jpg']
   },
@@ -44,11 +44,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {
   return (
-    <html lang="en" className={`${michroma.variable} ${orbitron.variable}`}>
-      <body
-      > <Header/>
+    <html lang="en" className={`${grotesk.variable} ${orbitron.variable}`}>
+      <body> 
+        <div className="w-[97dvw] h-[97dvh] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+         rounded-lg max-sm:h-[98dvh] bg-background_secondary">
+        <Header/>
         {children}
         <Footer/>
+        </div>
       </body>
     </html>
   );

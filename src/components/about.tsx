@@ -24,7 +24,7 @@ export default function About (){
        transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col justify-center items-center h-dvh px-10 max-sm:px-2 max-h-[90dvh]">
     <section className="flex flex-col gap-4 max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[98%] px-7 py-5 max-sm:px-2 bg-card">
       <div>
-            <p className="text-sm/7">
+            <p>
               Hi, I'm Austine Mark, a developer based in Kenya but work worldwide.
               Passionate about building intelligent solutions that enhance user experience and automate processes.
             </p>
@@ -39,18 +39,18 @@ export default function About (){
             </div>
       </div>
       <div className="flex flex-col gap-3">
-        <h4 className="text-primary text-base font-bold">WHAT THEY SAY: </h4>
+        <h4 className="text-muted_text text-base font-bold">WHAT THEY SAY: </h4>
         <ul className="flex gap-5 flex-wrap max-sm:gap-2">
           {testimonials.map((t, i)=>(
-            <li key={i} className={`bg-background px-3 py-1 rounded cursor-pointer 
+            <li key={i} className={`bg-background_secondary px-3 py-1 rounded cursor-pointer 
               ${hoveredTestim?.id === t.id && 'text-secondary' }`} onClick={()=>setHoveredTestim(t)}>{t.name}</li>
           ))}
         </ul>
-        {hoveredTestim && <div className="flex flex-col gap-2 max-w-[70%] max-sm:self-center max-sm:max-w-[90%] text-xs mt-2
-        px-3 py-1 rounded shadow-sm shadow-primary">
-            <p className='z-10 relative self-start flex gap-1 '>{hoveredTestim.title} | 
-              <span className='text-primary'>{hoveredTestim.company}</span></p>
-            <p className="mt-4 z-10 relative self-end text-end ">{hoveredTestim.content}</p>
+        {hoveredTestim && <div className="flex flex-col gap-2 w-full max-sm:self-center mt-2
+        px-3 py-1 rounded border border-borders">
+            <p className='z-10 relative self-end flex gap-1 '>{hoveredTestim.title} | 
+              <span className='text-muted_text'>{hoveredTestim.company}</span></p>
+            <p className="mt-4 z-10 relative">{hoveredTestim.content}</p>
           </div>}
 
       </div>
