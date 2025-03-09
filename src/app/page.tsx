@@ -5,9 +5,9 @@ import Projects from "@/components/projects"
 import Connect from "@/components/connect"
 import { motion } from "framer-motion";
 import Nav from "@/components/nav";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
-const sections: {[key: string]: JSX.Element}={
+const sections: {[key: string]: ReactElement}={
   INDEX: <Home/>,
   CREATIONS: <Projects/>,
   ABOUT: <About/>,
