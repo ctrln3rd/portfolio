@@ -24,6 +24,7 @@ export default function Projects(){
     const swiperRef = useRef<any>(null)
     const [selectedProject, setselectedProject] = useState<Project | null>(null)
     const [spaceBetween, setSpaceBetween] = useState(-3); // Default value
+    const [initialSlide, setInitialSide] = useState(1)
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -32,18 +33,16 @@ export default function Projects(){
       }, []);
     
 
-    const handleSeclect =(id: number)=>{
+    const handleSeclect =(id: number, index: number)=>{
         setselectedProject(null)
         setselectedProject(projects.find(p =>p.id === id) || null)
+        setInitialSide(index)
     }
     return(
-        <motion.main
-               initial={{opacity: 0, y: 20}}
-               animate={{opacity: 1, y: 0}}
-               transition={{duration: 0.8, ease: 'easeOut'}} className="flex flex-col justify-center items-center gap-5  px-5 h-[95dvh] max-sm:px-2">
-             <Swiper
+        <>
+            {!selectedProject && <Swiper
                modules={[Navigation]}
-               initialSlide={1}
+               initialSlide={initialSlide}
                spaceBetween={spaceBetween}
                slidesPerView={'auto'}
                centeredSlides
@@ -62,22 +61,24 @@ export default function Projects(){
                     <div className="self-center relative w-full h-[30vh] max-sm:h-[15vh] max-md:h-[22vh]">
                     <CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
                     <div className="flex flex-col gap-4">
-                        <h3 className="flex gap-3 font-semibold text-lg max-sm:text-base">{project.title} 
-                            <div onClick={()=> handleSeclect(project.id)} className="opacity-50 cursor-pointer">{'>>'}
-                            </div></h3>
+                        <div className="flex gap-3">
+                        <h3 className=" font-semibold text-lg max-sm:text-base">{project.title} </h3>
+                            <button onClick={()=> handleSeclect(project.id, index)} className="opacity-80 cursor-pointer">{'[ '}details &#8594;{']'}
+                        </button> 
+                        </div>
                         <div className="flex items-center justify-between">
                         <a  className={`${!project.github && 'opacity-40'}`}href={project.github}>github</a>
                         <a className={`flex items-center border border-borders
-                        border-opacity-45 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
+                        border-opacity-70 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
                             live project {/*<SmallIcon src="visit" alt="go"/>*/} <span className="text-xl">&#8599;</span></a>
                         </div>
                     </div>
                     </motion.div>)}
                 </SwiperSlide>
             ))}
+             </Swiper>}
 
 
-             </Swiper>
             <AnimatePresence>
             {selectedProject &&  <motion.div className={`self-center flex flex-col gap-4 
             items-start justify-center max-w-[50%] shadow-sm shadow-primary p-2 max-sm:max-w-[85%]`}
@@ -85,8 +86,10 @@ export default function Projects(){
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     transition={{duration: 0.8}}
-                    >
+                    > 
+                        <h3>{selectedProject.title } | <span className="opacity-70">{selectedProject.date}</span></h3>
                         <p> {'>>'} {selectedProject.description}</p>
+                        {selectedProject.client && <p> client: Austine</p>}
                         <button onClick={()=>setselectedProject(null)} className="px-3 py-1 border border-primary border-opacity-30">close</button>
                     </motion.div>
             }
@@ -98,6 +101,6 @@ export default function Projects(){
             className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded">&#8594;</button>
             </div>
             
-        </motion.main>
+        </>
     )
 }

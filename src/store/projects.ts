@@ -6,7 +6,8 @@ interface Project {
     date?: string;  
     link?: string;  
     github?: string; 
-    client?: string[];  
+    client?: string[];
+      
 }
 
 const useProjects: Project[] = [

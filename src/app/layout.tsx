@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk,  Orbitron} from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-
 const grotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-grotesk'});
 const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Austine Mark | The Developer',
-    template: '%s | Austine Mark - The Developer'
-  },
+  title: 'Austine | The Developer'
+  ,
   description: "A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work",
   keywords: ['web development', 'AI', 'Machine learning', 'cloud computing', 'austine mark', 'nextjs developer',
     'best portfolio website', 'frontend developer', 'tech enthusiast', 'computer science', 'muranga university', 'young coder'],
@@ -42,16 +37,12 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({children,}: {children: React.ReactNode;}) {
+
+export default function RootLayout({children,}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${grotesk.variable} ${orbitron.variable}`}>
       <body> 
-        <div className="w-[97dvw] h-[97dvh] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-         rounded-lg bg-background_secondary">
-        <Header/>
         {children}
-        <Footer/>
-        </div>
       </body>
     </html>
   );

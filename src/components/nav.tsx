@@ -1,30 +1,26 @@
 'use client';
-import Link from "next/link"
 import { motion } from "framer-motion"
-import { usePathname } from "next/navigation";
 import React, { useEffect, useState, useRef } from "react";
 
 
 interface NavItem{
     name: string;
-    path: string;
     x: number;
     y: number;
 }
 
 const navItems: NavItem[] = [
-    {name: 'connect', path: '/contact', x: 0, y: 1},
-    {name: 'home', path: '/', x: -1, y: 0 },
-    {name: 'creations', path: '/projects', x: 0, y: -1},
-    {name: 'about', path: '/about', x: 1, y: 0},
+    {name: 'connect', x: 0, y: 1},
+    {name: 'index', x: -1, y: 0 },
+    {name: 'creations', x: 0, y: -1},
+    {name: 'about', x: 1, y: 0},
 ]
 
-export default function Footer(){
-    const pathname = usePathname();
+export default function Nav({setActiveSection,}: {setActiveSection: (section: string)=>void}){
     const navcontainerRef = useRef<HTMLDivElement | null>(null);
     const itemRefs = useRef<{[key: string]: HTMLDivElement | null}>({})
     const [size, setSize] = useState(80);
-    const [activeIndex, setActiveIndex]= useState<number>(0);
+    const [activeIndex, setActiveIndex]= useState<number>(1);
     const [trans, setTrans] = useState<{[key: string]: {xt: number; yt: number}}>({})
     useEffect(()=> {
         const updateSize = ()=> {
@@ -53,9 +49,11 @@ export default function Footer(){
         window.addEventListener('resize', updateSize)
         return ()=>window.removeEventListener('resize', updateSize)
     }, [])
-    useEffect(()=> {
-        setActiveIndex(navItems.findIndex((item)=> item.path === pathname))
-    }, [pathname])
+
+    const handleNavClick = (index: number)=>{
+        setActiveIndex(index)
+        setActiveSection(navItems[index].name.toUpperCase())
+    }
 
 
     return(
@@ -86,9 +84,12 @@ export default function Footer(){
                 {navItems.map((item, index)=>(
                     <motion.div key={index} ref={(el)=> {(itemRefs.current as {[key: string]: HTMLDivElement | null})[item.name] = el}}
                     className="absolute text-xs flex justify-center font-semibold items-center hover:text-secondary"
-                    animate={{x: trans[item.name]?.xt || 0, y: trans[item.name]?.yt || 0}}>
-                    <Link href={item.path}
-                    >{item.name.toUpperCase()}</Link>
+                    animate={{x: trans[item.name]?.xt || 0, y: trans[item.name]?.yt || 0}}
+                    onClick={()=>handleNavClick(index)}
+                    >
+                    <button>
+                    {item.name.toUpperCase()}
+                    </button>
                     </motion.div>
                     )
                     )}
