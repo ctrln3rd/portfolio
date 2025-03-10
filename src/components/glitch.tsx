@@ -22,7 +22,7 @@ const generateGlitchText = (text: string)=>{
    .join('')
 }
 
-function GlitchText({text, effect= 'continuous', 
+function GlitchText({text, effect= 'one-time', 
     triggerOn = 'hover', duration = 1, intensity = 10, stopDuration = 2}:
     GlitchTextProps){
         const [glitchedText, setGlitchedText] = useState(text);

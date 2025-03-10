@@ -84,7 +84,7 @@ export default function Nav({setActiveSection,}: {setActiveSection: (section: st
                 ></motion.div>
                 {navItems.map((item, index)=>(
                     <motion.div key={index} ref={(el)=> {(itemRefs.current as {[key: string]: HTMLDivElement | null})[item.name] = el}}
-                    className="absolute text-xs flex flex-col justify-center font-semibold items-center"
+                    className="absolute text-xs flex flex-col justify-center font-semibold items-center px-1"
                     animate={{x: trans[item.name]?.xt || 0, y: trans[item.name]?.yt || 0}}
                     onClick={()=>handleNavClick(index)}
                     >

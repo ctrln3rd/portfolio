@@ -43,7 +43,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
 
             </motion.svg>
          <motion.div className="absolute text-xs" ref={textref}>
-            GETTING <GlitchText text="YOU" intensity={15} duration={0.5} stopDuration={0.3}/> <GlitchText text="READY" intensity={15} duration={0.5} stopDuration={0.3}/>
+            GETTING <GlitchText text="YOU" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/> <GlitchText text="READY" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/>
          </motion.div>
         </motion.div>
     )
