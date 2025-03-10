@@ -1,12 +1,13 @@
 'use client';
 import useProjects from "@/store/projects"
 import { useState, useRef, useEffect } from "react"
-import { CoverImage, SmallIcon } from "./images";
+import { CoverImage } from "./images";
 import { motion , AnimatePresence} from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Navigation} from 'swiper/modules'
 import 'swiper/css';
 import 'swiper/css/navigation'
+import GlitchText from "./glitch";
 
 interface Project {
     id: number;  
@@ -62,7 +63,8 @@ export default function Projects(){
                     <CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
                     <div className="flex flex-col gap-4">
                         <div className="flex gap-3">
-                        <h3 className=" font-semibold text-lg max-sm:text-base">{project.title} </h3>
+                        <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={project.title} effect="one-time" duration={0.5}/>) 
+                        : <span>{project.title}</span>} </h3>
                             <button onClick={()=> handleSeclect(project.id, index)} className="opacity-80 cursor-pointer">{'[ '}details &#8594;{']'}
                         </button> 
                         </div>

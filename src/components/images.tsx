@@ -5,23 +5,12 @@ interface Input{
     alt: string;
 }
 
-export function SmallIcon({src, alt}: Input){
+export function SocialIcon({src, alt}: Input){
   return(
-    <img className="w-7 h-7" src={`/icons/${src}.svg`} alt={alt}/>
+    <img className="w-7 h-7" src={`/socials/${src}.svg`} alt={alt}/>
   )
 } 
 
-export function MediumIcon({src, alt}:Input){
-  return(
-    <img className="w-10 h-10" src={`/icons/${src}.svg`} alt={alt}/>
-  )
-}
-
-export function BigIcon({src, alt}:Input){
-    return(
-      <img className="w-20 h-20" src={`/icons/${src}.svg`} alt={alt}/>
-    )
-  }
 
 export function CoverImage({src, alt}: Input){
     return(

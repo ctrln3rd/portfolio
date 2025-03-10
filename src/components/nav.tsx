@@ -1,6 +1,7 @@
 'use client';
 import { motion } from "framer-motion"
 import React, { useEffect, useState, useRef } from "react";
+import GlitchText from "./glitch";
 
 
 interface NavItem{
@@ -83,13 +84,21 @@ export default function Nav({setActiveSection,}: {setActiveSection: (section: st
                 ></motion.div>
                 {navItems.map((item, index)=>(
                     <motion.div key={index} ref={(el)=> {(itemRefs.current as {[key: string]: HTMLDivElement | null})[item.name] = el}}
-                    className="absolute text-xs flex justify-center font-semibold items-center hover:text-secondary"
+                    className="absolute text-xs flex flex-col justify-center font-semibold items-center"
                     animate={{x: trans[item.name]?.xt || 0, y: trans[item.name]?.yt || 0}}
                     onClick={()=>handleNavClick(index)}
                     >
                     <button>
-                    {item.name.toUpperCase()}
+                    <GlitchText text={item.name.toUpperCase()} effect="triggered" triggerOn="hover" duration={0.5}/>
                     </button>
+                    {activeIndex === index && <motion.div
+                    className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-text"
+                    initial= {{scaleX: 0}}
+                    animate= {{scaleX: 1}}
+                    exit={{scaleX: 0}}
+                    transition={{duration: 0.3, ease: 'easeInOut'}}
+                    >
+                    </motion.div>}
                     </motion.div>
                     )
                     )}
