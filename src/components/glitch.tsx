@@ -35,7 +35,7 @@ function GlitchText({text, effect= 'continuous',
             interval.current = setInterval(()=> {
                 setGlitchedText(generateGlitchText(text))
                 elapsed +=  1 / intensity;
-                if(effect === 'one-time' && elapsed >= duration) stopGlitch() ;
+                if(effect === 'one-time' || effect === 'triggered' && elapsed >= duration) stopGlitch() ;
             }, 1000 / intensity)
         }
         const stopGlitch = ()=> {
@@ -74,7 +74,6 @@ function GlitchText({text, effect= 'continuous',
             <motion.span
             key={text}
             onMouseEnter={triggerOn === 'hover' && effect === 'triggered' ? startGlitch : undefined}
-            onMouseLeave={triggerOn === 'hover' && effect === 'triggered' ? stopGlitch : undefined}
             onClick={triggerOn === 'click' && effect === 'triggered' ? startGlitch: undefined}
             animate = {controls}
             >
