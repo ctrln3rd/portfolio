@@ -35,7 +35,8 @@ function GlitchText({text, effect= 'continuous',
             interval.current = setInterval(()=> {
                 setGlitchedText(generateGlitchText(text))
                 elapsed +=  1 / intensity;
-                if(effect === 'one-time' || effect === 'triggered' && elapsed >= duration) stopGlitch() ;
+                if(effect === 'one-time' && elapsed >= duration) stopGlitch() ;
+                if(effect === 'triggered' && elapsed >= duration) stopGlitch() ;
             }, 1000 / intensity)
         }
         const stopGlitch = ()=> {
