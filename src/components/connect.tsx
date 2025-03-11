@@ -13,10 +13,10 @@ export default function Connect() {
           border-primary border-opacity-30 items-center hover:underline"><SocialIcon src="in" alt="icon"/> LINKEDIN
        </a>
           <div className="flex gap-4  justify-stretch">
-        <a href="https://www.instagram.com/lil_musk101?igsh=YzljYTk1ODg3Zg==" className="flex px-4 py-1 border gap-2
+        <a href="https://www.instagram.com/ctrln3rd?igsh=YzljYTk1ODg3Zg==" className="flex px-4 py-1 border gap-2
           border-secondary border-opacity-30 items-center hover:underline"> <SocialIcon src="ig" alt="icon"/> INSTAGRAM
          </a>
-        <a href="https://github.com/austinemark001" className="flex px-4 py-1 border gap-2
+        <a href="https://github.com/ctrln3rd" className="flex px-4 py-1 border gap-2
           border-secondary border-opacity-30 items-center hover:underline">GITHUB
           <SocialIcon src="gt" alt="icon"/></a>
         </div>
