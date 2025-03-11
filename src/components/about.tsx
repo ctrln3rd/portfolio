@@ -26,7 +26,7 @@ export default function About (){
     <div className="flex flex-col gap-4 max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[98%] px-7 py-5 max-sm:px-2 bg-card rounded-xl">
       {!istestims && <div>
             <p>
-              Hi, I'm Austine Mark, a developer based in Kenya but work worldwide.
+              Hi, I'm Austine Mark <span className="opacity-70">&#91; ctrlN3rd &#93;</span>, a developer based in Kenya but work worldwide.
               Passionate about building intelligent solutions that enhance user experience and automate processes.
             </p>
             <div className="flex  flex-col items-start gap-3">

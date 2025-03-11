@@ -16,6 +16,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .headers{
   @apply hover:text-primary;
+  color: #ededed99
 }
 .button-one{
   @apply bg-primary;
@@ -29,4 +30,29 @@ h1, h2, h3, h4, h5, h6{
 .noscrollbar::-webkit-scrollbar{
   display: none;
 
+}
+.glitch::before, .glitch::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.glitch:hover::before {
+  transform: translateX(-3px);
+  opacity: 0.8;
+  animation: glitch 0.2s 3 alternate;
+}
+.glitch:hover::after{
+  transform: translateX(3px);
+  opacity: 0.8;
+  animation: glitch 0.2s 3 alternate-reverse;
+}
+@keyframes glitch {
+  0%{transform: translateX(-3px);}
+  100%{transform: translateX(3px);}
 }

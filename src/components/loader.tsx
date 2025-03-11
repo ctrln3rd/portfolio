@@ -14,7 +14,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
     useEffect(()=> {
         if(textref.current){
             const textWidth = textref.current.offsetWidth
-            setSvgWidth(Math.max(150, textWidth + 100))
+            setSvgWidth(Math.max(150, textWidth + 150))
         }
         let interval = setInterval(()=> {
             setProgress((prev)=>{
@@ -35,15 +35,21 @@ function Loader({onComplete}: {onComplete: ()=> void}){
         >
             <motion.svg width={svgWidth} height={svgWidth} viewBox={'0 0 100 100'}>
                 <motion.circle 
-                cx={50} cy={50} r={40} stroke={'#ededed'} 
-                strokeWidth={0.7} fill={'none'}
+                cx={50} cy={50} r={40} stroke={'#ededed99'} 
+                strokeWidth={0.5} fill={'none'}
                 strokeDasharray={251.2} strokeDashoffset={(1- progress / 100) * 251.2}
                 animate={{strokeDashoffset: (1- progress / 100) * 251.2}}
                 />
 
             </motion.svg>
-         <motion.div className="absolute text-xs" ref={textref}>
-            GETTING <GlitchText text="YOU" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/> <GlitchText text="READY" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/>
+         <motion.div className="absolute flex flex-col gap-1 items-center text-xs text-nowrap uppercase" ref={textref}>
+            <div className="text-green-600">
+                C:&#47; U<GlitchText text="SE" effect='continuous'  stopDuration={0.3}/>R &#47; ctrln3rd &#62;
+                </div>
+            <div>
+               &#91; GETTING Y<GlitchText text="OU" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/> R 
+               <GlitchText text="EA" effect='continuous' intensity={15} duration={0.5} stopDuration={0.3}/>DY... &#93;
+                </div>
          </motion.div>
         </motion.div>
     )

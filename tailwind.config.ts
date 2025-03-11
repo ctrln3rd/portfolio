@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc/generated-native";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -22,6 +23,16 @@ export default {
       fontFamily: {
         heading: ['var(--font-orbitron)', 'sans-serif'],
         body: ['var(--font-grotesk)', 'sans-serif']
+      },
+      animation: {
+        glitch: 'glitch 0.2 infinite alternate',
+        glitchReverse: 'glitch 0.2 infinite alternate-reverse'
+      },
+      keyframes: {
+        glitch: {
+          '0%': {transform: 'translateX(-3px)'},
+          '100%': {transform: 'translateX(3px)'},
+        },
       },
     },
   },

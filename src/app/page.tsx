@@ -1,6 +1,6 @@
 'use client';
 import Loader from "@/components/loader";
-import Home from "@/components/home"
+import Index from "@/components";
 import About from "@/components/about"
 import Projects from "@/components/projects"
 import Connect from "@/components/connect"
@@ -11,7 +11,7 @@ import GlitchText from "@/components/glitch";
 
 
 const sections: {[key: string]: ReactElement}={
-  INDEX: <Home/>,
+  INDEX: <Index/>,
   CREATIONS: <Projects/>,
   ABOUT: <About/>,
   CONNECT: <Connect/>,
@@ -36,7 +36,7 @@ export default function HomePage() {
         <h1 className="font-semibold text-3xl">AM</h1>
         {activeSection === 'INDEX' && <div className="flex items-center gap-1"> 
           <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>
-          <h2>LIL <GlitchText text="MUSK"/></h2>
+          <h2>CTRL <GlitchText text="N3RD"/></h2>
         </div>}
         {activeSection === 'ABOUT' && <div className="flex items-center gap-1"> 
           <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>

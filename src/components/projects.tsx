@@ -17,7 +17,10 @@ interface Project {
     date?: string;  
     link?: string;  
     github?: string; 
-    client?: string[];   
+    client?: string;
+    collabo?: string;
+    problem?: string;
+      
 }
 
 export default function Projects(){
@@ -91,7 +94,16 @@ export default function Projects(){
                     > 
                         <h3>{selectedProject.title } | <span className="opacity-70">{selectedProject.date}</span></h3>
                         <p> {'>>'} {selectedProject.description}</p>
-                        {selectedProject.client && <p> client: Austine</p>}
+                           <p className="flex gap-1 items-center">
+                            <span className="opacity-70">CL<GlitchText text="IE"/>NT: </span>
+                            {selectedProject.client}
+                        </p>
+                        <p className="flex gap-1 items-center"><span className="opacity-70">PROBLEM SOLVED:</span>
+                        {selectedProject.problem} </p>
+                       <p className="flex gap-1 items-center">
+                        <span className="opacity-70">COLLA<GlitchText text="BORA"/>TORS:</span>
+                        {selectedProject.collabo}
+                       </p>
                         <button onClick={()=>setselectedProject(null)} className="px-3 py-1 border border-primary border-opacity-30">close</button>
                     </motion.div>
             }
