@@ -1,15 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GlitchText from './glitch';
 import { motion } from 'framer-motion';
 
 export default function Index() {
-  const [glitch, setGlitch] = useState(false);
-  useEffect(()=> {
-    setGlitch(true);
-    setTimeout(()=> setGlitch(false), 1000)
-  })
+ 
   return (
       <>
         <motion.div className={`absolute inset-0 bg-center flex items-center justify-center w-full h-full
@@ -21,7 +17,7 @@ export default function Index() {
         >
          <motion.img
          src='/hero-background.jpg'
-         className='w-full h-full object-contain cursor-pointer border'
+         className='w-full h-full object-contain cursor-pointer'
          initial={{filter: 'none'}}
          animate={{
           filter: ['none', 'blur(2px)', 'none'],
