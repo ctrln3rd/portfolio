@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import useTestimonials from "@/store/testimonials";
 import { motion } from "framer-motion";
 import GlitchText from "./glitch";
@@ -20,21 +20,31 @@ export default function About (){
   const testimonials = useTestimonials;
   const [istestims, settestims] = useState(false)
   const [hoveredTestim, setHoveredTestim] = useState<Testimonial>(testimonials[0])
+  const [fullImage, setFullImage] = useState(false)
+
 
   return (
     <>
     <div className="flex flex-col gap-4 max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[98%] px-7 py-5 max-sm:px-2 bg-card rounded-xl">
       {!istestims && <div>
-            <p>
+        <div className={`flex ${fullImage ? 'flex-col' : 'flex-row'} items-center gap-3`}>
+          <img
+          src="/me.webp"
+          className={`rounded-full aspect-square 
+            ${!fullImage ? 'w-[5dvw] max-md:w-[10dvw] max-sm:w-[15dvw]':'w-[30dvw] max-md:w-[45dvw] max-sm:w-[60dvw]'}`}
+          />
+            <button onClick={()=>setFullImage(!fullImage)} className="lowercase opacity-80 outline-none">
+              &#91; {!fullImage ? (<span>Z<GlitchText text="OO"/>M</span>): 
+            (<span>SH<GlitchText text="RI"/>NK</span>)} &#93;</button>
+            </div>
+            {!fullImage && <>
+            <p className="mt-3">
               Hi, I'm Austine Mark <span className="opacity-70">&#91; ctrlN3rd &#93;</span>, a developer based in Kenya but work worldwide.
               Passionate about building intelligent solutions that enhance user experience and automate processes.
             </p>
             <div className="flex  flex-col items-start gap-3">
               I specialize in:
               <div className="flex flex-col gap-4 items-stretch">
-              {/*<p className="opacity-70 px-3 py-1 border border-borders uppercase"> &#8594; Web Dev<GlitchText text="elo"intensity={5}/>pment</p>
-               <p className="opacity-70 px-3 py-1 border border-borders uppercase">&#8594; Cl<GlitchText text="ou" intensity={5}/>d Computing</p>
-               <p className="opacity-70 px-3 py-1 border border-borders uppercase">&#8594; Machine Le<GlitchText text="arn" intensity={5}/>ing</p>*/}
                {skills.map((skill, index)=>(
                 <div className="relative px-4 py-2 overflow-hidden" key={index}>
                 <motion.div
@@ -43,26 +53,17 @@ export default function About (){
                 animate={{rotate: 360}}
                 transition={{repeat: Infinity, duration: 3, ease: 'linear', delay: 1}}
                 />
-
-                {/*<motion.div className="absolute inset-0 border border-borders"
-                animate={{
-                  borderImageSource: 'linear-gradient(45deg, rgb(187, 134, 252, 0.5), rgb(255, 255, 255, 0.2))',
-                  borderImageSlice: 1
-                }}
-                transition={{
-                  repeat: Infinity, repeatType: 'mirror', duration: 2
-                }}
-                />*/}
                 <span className="relative opacity-60 uppercase">{skill}</span>
                 </div>
                ))}
               </div>
               I bring innovative ideas to life.
             </div>
+            </>}
       </div>}
-      <button className="text-muted_text uppercase" onClick={()=>settestims(!istestims)}>
+      {!fullImage && <button className="text-muted_text uppercase" onClick={()=>settestims(!istestims)}>
       &#91; {!istestims ? (<span>W<GlitchText text="ha"/>t th<GlitchText text="ey"/> say</span>) :
-       (<span>c<GlitchText text="lo"/>se</span>)} &#93;</button>
+       (<span>c<GlitchText text="lo"/>se</span>)} &#93;</button>}
       {istestims && <div className="flex flex-col gap-3">
         <div className="flex gap-5 flex-wrap max-sm:gap-2">
           {testimonials.map((t, i)=>(
@@ -86,8 +87,6 @@ export default function About (){
           </div>}
       </div>}
     </div>
-    <div className="fixed left-7 bottom-5 w-36 h-36 rounded-full bg-[url('/me.webp')] 
-    bg-center bg-cover max-md:w-28 max-md:h-28 max-sm:left-2 max-sm:w-24 max-sm:h-24"></div>
 
   </>
   );

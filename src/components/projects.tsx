@@ -9,26 +9,11 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import GlitchText from "./glitch";
 
-interface Project {
-    id: number;  
-    title: string;  
-    image: string;  
-    description: string;  
-    date?: string;  
-    link?: string;  
-    github?: string; 
-    client?: string;
-    collabo?: string;
-    problem?: string;
-      
-}
 
 export default function Projects(){
     const projects = useProjects
     const swiperRef = useRef<any>(null)
-    const [selectedProject, setselectedProject] = useState<Project | null>(null)
     const [spaceBetween, setSpaceBetween] = useState(-3); // Default value
-    const [initialSlide, setInitialSide] = useState(1)
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -37,16 +22,11 @@ export default function Projects(){
       }, []);
     
 
-    const handleSeclect =(id: number, index: number)=>{
-        setselectedProject(null)
-        setselectedProject(projects.find(p =>p.id === id) || null)
-        setInitialSide(index)
-    }
     return(
         <>
-            {!selectedProject && <Swiper
+            <Swiper
                modules={[Navigation]}
-               initialSlide={initialSlide}
+               initialSlide={1}
                spaceBetween={spaceBetween}
                slidesPerView={'auto'}
                centeredSlides
@@ -60,33 +40,10 @@ export default function Projects(){
                     )}
                 </SwiperSlide>
             ))}
-             </Swiper>}
+             </Swiper>
 
 
-            <AnimatePresence>
-            {selectedProject &&  <motion.div className={`self-center flex flex-col gap-4 
-            items-start justify-center max-w-[50%] shadow-sm shadow-primary p-2 max-sm:max-w-[85%]`}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{duration: 0.8}}
-                    > 
-                        <h3>{selectedProject.title } | <span className="opacity-70">{selectedProject.date}</span></h3>
-                        <p> {'>>'} {selectedProject.description}</p>
-                           <p className="flex gap-1 items-center">
-                            <span className="opacity-70">CL<GlitchText text="IE"/>NT: </span>
-                            {selectedProject.client}
-                        </p>
-                        <p className="flex gap-1 items-center"><span className="opacity-70">PROBLEM SOLVED:</span>
-                        {selectedProject.problem} </p>
-                       <p className="flex gap-1 items-center">
-                        <span className="opacity-70">COLLA<GlitchText text="BORA"/>TORS:</span>
-                        {selectedProject.collabo}
-                       </p>
-                        <button onClick={()=>setselectedProject(null)} className="px-3 py-1 border border-primary border-opacity-30">close</button>
-                    </motion.div>
-            }
-            </AnimatePresence>
+            
         <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3 text-lg">
             <button onClick={()=>swiperRef.current?.slidePrev()}
                 className="flex gap-1 items-center px-3 py-1 border border-primary border-opacity-50 rounded">&#8592;</button>
@@ -124,14 +81,14 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             initial={{opacity: 0, scale: 0.8}}
             animate={isActive ? {opacity: 1, scale: 1, filter: 'none'} : {opacity: 0.5, scale: 0.9, filter: 'blur(1px)'}}
             transition={{duration: 0.5,ease: 'easeOut'}}
-            className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-8  py-5 max-sm:px-5 w-auto"
+            className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-8 py-5 max-sm:px-5 w-auto"
             >
             <motion.div
             initial={{height: 0, opacity: 0}}
             animate= {!showDetails? {height: 'auto', opacity: 1}: {height: 0, opacity: 0}}
             transition={{duration: 0.3, ease: 'easeInOut'}}
             className="self-center relative w-full">
-            <div className="relative h-[35vh] max-sm:h-[15vh] max-md:h-[22vh]">
+            <div className="relative h-[35vh] max-sm:h-[20vh] max-md:h-[25vh]">
             <CoverImage src={`/projects/${image}`} alt="project image"/>
             </div>
             </motion.div>
@@ -154,7 +111,7 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             initial={{height: 0, opacity: 0}}
             animate= {showDetails? {height: 'auto', opacity: 1}: {height: 0, opacity: 0}}
             transition={{duration: 0.3, ease: 'easeInOut'}}
-            className="flex flex-col items-start gap-2 overflow-hidden mt-2 px-1 pt-2 border-t-[1px] border-t-borders"
+            className="flex flex-col items-start gap-2 max-sm:gap-3 overflow-hidden mt-2 px-1 pt-2 border-t-[1px] border-t-borders"
             >
                 {showDetails && <>
                 <p><span className="opacity-80 uppercase">D<GlitchText text="A"/>TE: </span>{date}</p>
