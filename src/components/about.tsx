@@ -60,8 +60,9 @@ export default function About (){
               I bring innovative ideas to life.
             </div>
       </div>}
-      <button className="text-muted_text self-start uppercase" onClick={()=>settestims(true)}>
-        what <GlitchText text="they" effect="triggered"/> say  &#8594;</button>
+      <button className="text-muted_text uppercase" onClick={()=>settestims(!istestims)}>
+      &#91; {!istestims ? (<span>W<GlitchText text="ha"/>t th<GlitchText text="ey"/> say</span>) :
+       (<span>c<GlitchText text="lo"/>se</span>)} &#93;</button>
       {istestims && <div className="flex flex-col gap-3">
         <div className="flex gap-5 flex-wrap max-sm:gap-2">
           {testimonials.map((t, i)=>(
@@ -84,10 +85,8 @@ export default function About (){
             <p className="mt-4 z-10 relative">{hoveredTestim.content}</p>
           </div>}
       </div>}
-      {istestims && 
-      <button onClick={()=>settestims(false)} className="self-start px-3 py-1 border border-borders border-opacity-70">close</button>}
     </div>
-    <div className="fixed left-7 bottom-5 w-36 h-36 rounded-full bg-[url('/me.jpg')] 
+    <div className="fixed left-7 bottom-5 w-36 h-36 rounded-full bg-[url('/me.webp')] 
     bg-center bg-cover max-md:w-28 max-md:h-28 max-sm:left-2 max-sm:w-24 max-sm:h-24"></div>
 
   </>

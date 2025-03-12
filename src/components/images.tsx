@@ -14,7 +14,7 @@ export function SocialIcon({src, alt}: Input){
 
 export function CoverImage({src, alt}: Input){
     return(
-        <Image src={`${src}.jpg`} fill={true} alt={alt} sizes="100%"/>
+        <Image src={`${src}.webp`} fill={true} alt={alt} sizes="100%"/>
     )
 }
 export function CoverImageNo({src, alt}: Input){

@@ -16,7 +16,7 @@ export default function Index() {
         transition={{duration: 0.5}}
         >
          <motion.img
-         src='/hero-background.jpg'
+         src='/hero-background.webp'
          className='w-full h-full object-contain cursor-pointer'
          initial={{filter: 'none'}}
          animate={{

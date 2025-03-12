@@ -51,34 +51,13 @@ export default function Projects(){
                slidesPerView={'auto'}
                centeredSlides
               onSwiper={(swiper)=>(swiperRef.current = swiper)}
-               loop className="overflow-visible w-full"
+               loop className="overflow-visible w-full items-center"
              >
             {projects.map((project, index)=>(
-                <SwiperSlide key={index} className="w-auto max-w-[40%] max-md:max-w-[60%] max-sm:max-w-[70%] flex justify-center">
+                <SwiperSlide key={index} className="w-auto max-w-[40%] max-md:max-w-[60%] max-sm:max-w-[75%] flex justify-center">
                     {({isActive})=>(
-                    <motion.div
-                    initial={{opacity: 0, scale: 0.8}}
-                    animate={isActive ? {opacity: 1, scale: 1} : {opacity: 0.5, scale: 0.9}}
-                    transition={{duration: 0.5,ease: 'easeOut'}}
-                    className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-3 py-4 w-auto"
-                    >
-                    <div className="self-center relative w-full h-[30vh] max-sm:h-[15vh] max-md:h-[22vh]">
-                    <CoverImage src={`/projects/${project.image}`} alt="project image"/></div>
-                    <div className="flex flex-col gap-4">
-                        <div className="flex gap-3">
-                        <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={project.title} effect="one-time" duration={0.5}/>) 
-                        : <span>{project.title}</span>} </h3>
-                            <button onClick={()=> handleSeclect(project.id, index)} className="opacity-80 cursor-pointer">{'[ '}details &#8594;{']'}
-                        </button> 
-                        </div>
-                        <div className="flex items-center justify-between">
-                        <a  className={`${!project.github && 'opacity-40'}`}href={project.github}>github</a>
-                        <a className={`flex items-center border border-borders
-                        border-opacity-70 px-3 py-1 max-sm:px-2 rounded ${!project.link && 'opacity-40'}`} href={project.link}>
-                            live project {/*<SmallIcon src="visit" alt="go"/>*/} <span className="text-xl">&#8599;</span></a>
-                        </div>
-                    </div>
-                    </motion.div>)}
+                        <ProjectCard {...project} isActive={isActive}/>
+                    )}
                 </SwiperSlide>
             ))}
              </Swiper>}
@@ -117,4 +96,78 @@ export default function Projects(){
             
         </>
     )
+}
+
+interface ProjectCardProps {
+    id: number;  
+    title: string;  
+    image: string;  
+    description: string;  
+    date?: string;  
+    link?: string;  
+    github?: string; 
+    client?: string;
+    collabo?: string;
+    problem?: string;
+    isActive: boolean
+      
+}
+
+function ProjectCard({id, title, image, description, date, link, github, client, collabo, problem, isActive}: ProjectCardProps){
+    const [showDetails, setShowDetails] = useState(false);
+    useEffect(()=>{
+        if(!isActive)setShowDetails(false);
+    },[isActive])
+    return(
+        <motion.div
+            key={id}
+            initial={{opacity: 0, scale: 0.8}}
+            animate={isActive ? {opacity: 1, scale: 1, filter: 'none'} : {opacity: 0.5, scale: 0.9, filter: 'blur(1px)'}}
+            transition={{duration: 0.5,ease: 'easeOut'}}
+            className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-8  py-5 max-sm:px-5 w-auto"
+            >
+            <motion.div
+            initial={{height: 0, opacity: 0}}
+            animate= {!showDetails? {height: 'auto', opacity: 1}: {height: 0, opacity: 0}}
+            transition={{duration: 0.3, ease: 'easeInOut'}}
+            className="self-center relative w-full">
+            <div className="relative h-[35vh] max-sm:h-[15vh] max-md:h-[22vh]">
+            <CoverImage src={`/projects/${image}`} alt="project image"/>
+            </div>
+            </motion.div>
+            <div className="flex flex-col gap-4">
+                <div className="flex gap-3">
+                <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={title} effect="one-time" duration={0.5}/>) 
+                : <span>{title}</span>} </h3>
+                   
+                </div>
+                <div className="flex items-center justify-between">
+                {!showDetails && <a  className={`${!github && 'opacity-40'}`}href={github}>github</a>}
+                {isActive && <button onClick={()=>setShowDetails(!showDetails)}  className='opacity-80 cursor-pointer'>
+                    {!showDetails ? (<span>&#91; det<GlitchText text="ai"/>ls &#93;</span>): (<span>&#91; hide <GlitchText text="de"/>tails &#93;</span>) }</button>} 
+                <a className={`flex items-center border border-borders
+                border-opacity-70 px-3 py-1 max-sm:px-2 rounded ${!link && 'opacity-40'}`} href={link}>
+                    live project {/*<SmallIcon src="visit" alt="go"/>*/} <span className="text-xl">&#8599;</span></a>
+                </div>
+            </div>
+            <motion.div
+            initial={{height: 0, opacity: 0}}
+            animate= {showDetails? {height: 'auto', opacity: 1}: {height: 0, opacity: 0}}
+            transition={{duration: 0.3, ease: 'easeInOut'}}
+            className="flex flex-col items-start gap-2 overflow-hidden mt-2 px-1 pt-2 border-t-[1px] border-t-borders"
+            >
+                {showDetails && <>
+                <p><span className="opacity-80 uppercase">D<GlitchText text="A"/>TE: </span>{date}</p>
+                <p>{description}</p>
+                <p><span className="opacity-80 uppercase">CL<GlitchText text="IE"/>NT: </span>{client}</p>
+                <p><span className="opacity-80 uppercase">RR<GlitchText text="O"/>BLEM SOL<GlitchText text="V"/>ED: </span>{problem}</p>
+                <p><span className="opacity-80 uppercase">COLLA<GlitchText text="BO"/>RATORS: </span>{collabo}</p>
+
+                {github && <a href={`${github}#readme`} target="_blank"
+                 className="opacity-80 border border-borders px-2 py-1 uppercase">
+                    M<GlitchText text="o"/>re on gi<GlitchText text="t"/>hub re<GlitchText text="a"/>dme &#8599;</a>}
+                </>}
+            </motion.div>
+        </motion.div>
+)
 }

@@ -1,29 +1,35 @@
 'use client';
 import Loader from "@/components/loader";
-import Index from "@/components";
+/*import Index from "@/components";
 import About from "@/components/about"
 import Projects from "@/components/projects"
-import Connect from "@/components/connect"
-import { motion } from "framer-motion";
+import Connect from "@/components/connect"*/
+import { AnimatePresence, motion } from "framer-motion";
 import Nav from "@/components/nav";
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import GlitchText from "@/components/glitch";
+import dynamic from "next/dynamic";
 
 
-const sections: {[key: string]: ReactElement}={
-  INDEX: <Index/>,
-  CREATIONS: <Projects/>,
-  ABOUT: <About/>,
-  CONNECT: <Connect/>,
+const sections ={
+  INDEX: dynamic(()=> import("@/components/index")),
+  CREATIONS: dynamic(()=> import("@/components/projects")),
+  ABOUT: dynamic(()=> import("@/components/about")),
+  CONNECT: dynamic(()=> import("@/components/connect")),
 }
 
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState('INDEX')
   const [isLoading, setIsloading] = useState(true)
+  const [loadedSections, setLoadedSections] = useState(new Set(['index']))
+
   const handleComplete = ()=>{
     setIsloading(false)
   }
+  useEffect(()=>{
+    setLoadedSections((prev)=> new Set(prev).add(activeSection))
+  }, [activeSection])
   return (
     <div className="w-[97dvw] h-[97dvh] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
     rounded-lg bg-background_secondary flex">
@@ -52,16 +58,23 @@ export default function HomePage() {
         </div>}
     </header>
       <main className="flex-auto w-full h-[90%] relative max-sm:h-[95%]">
-      <motion.section
-      key={activeSection}
-      initial= {{opacity: 0, y: 20}}
-      animate= {{opacity: 1, y: 0}}
-      exit={{opacity: 0, y: -20}}
-      transition={{duration: 0.5}}
-      className="w-full h-full flex flex-col items-center justify-center"
-      >
-      {sections[activeSection]}
-      </motion.section>
+      <AnimatePresence mode="wait">
+      {Array.from(loadedSections).map((section)=>{
+        const SectionComponent = sections[section as keyof typeof sections];
+        return section === activeSection ? (
+        <motion.section
+        key={activeSection}
+        initial= {{opacity: 0, scale: 0.9}}
+        animate= {{opacity: 1, scale: 1}}
+        exit={{opacity: 0, scale: 0.9}}
+        transition={{duration: 0.5}}
+        className="w-full h-full flex flex-col items-center justify-center"
+        >
+          <SectionComponent/>
+        </motion.section>
+        ): null;
+      })}
+      </AnimatePresence>
       </main>
       <Nav setActiveSection={setActiveSection}/>
       </>}
