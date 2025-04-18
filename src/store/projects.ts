@@ -26,7 +26,7 @@ const useProjects: Project[] = [
         id: 2,
         title: 'tempest IQ',
         image: 'tempestiq',
-        description: 'Track forecast data with summerized and tailored to your need for critical upcoming weather information',
+        description: 'Track forecast data, smartly summerized and insighted just for you and your plans',
         date: 'April 1, 2025',
         link: 'https://tempestiq.netlify.app',
         github: 'https://github.com/ctrln3rd/tempest-iq',
