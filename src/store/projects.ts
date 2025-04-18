@@ -24,13 +24,13 @@ const useProjects: Project[] = [
     },
     {
         id: 2,
-        title: 'Weather Rush',
-        image: 'weatherrush',
-        description: 'Your real-time weather expert, delivering modern accurate forecasts from trusted APIs using artificial intelligence.',
-        date: 'Feb 25, 2025',
-        link: 'https://weatherrush.netlify.app',
-        github: 'https://github.com/ctrln3rd/weather-rush',
-        problem: 'Simplifying weather information',
+        title: 'tempest IQ',
+        image: 'tempestiq',
+        description: 'Track forecast data with summerized and tailored to your need for critical upcoming weather information',
+        date: 'April 1, 2025',
+        link: 'https://tempestiq.netlify.app',
+        github: 'https://github.com/ctrln3rd/tempest-iq',
+        problem: 'Simplifying forecast information',
         client: 'world'
     },
     {
