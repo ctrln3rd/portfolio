@@ -83,6 +83,11 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             transition={{duration: 0.5,ease: 'easeOut'}}
             className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-8 py-5 max-sm:px-5 w-auto"
             >
+            <div className="flex gap-3 pb-2">
+                <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={title} effect="one-time" duration={0.5}/>) 
+                : <span>{title}</span>} </h3>
+                   
+            </div>
             <motion.div
             initial={{height: 0, opacity: 0}}
             animate= {!showDetails? {height: 'auto', opacity: 1}: {height: 0, opacity: 0}}
@@ -93,11 +98,7 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             </div>
             </motion.div>
             <div className="flex flex-col gap-4">
-                <div className="flex gap-3">
-                <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={title} effect="one-time" duration={0.5}/>) 
-                : <span>{title}</span>} </h3>
-                   
-                </div>
+                
                 <div className="flex items-center justify-between">
                 {!showDetails && <a  className={`${!github && 'opacity-40'}`}href={github}>github</a>}
                 {isActive && <button onClick={()=>setShowDetails(!showDetails)}  className='opacity-80 cursor-pointer'>
