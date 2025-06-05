@@ -41,19 +41,19 @@ export default function HomePage() {
     <header className="fixed inset-0 flex flex-row items-center justify-between w-full h-fit px-4 z-50">
         <h1 className="font-semibold text-3xl">AM</h1>
         {activeSection === 'INDEX' && <div className="flex items-center gap-1"> 
-          <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>
+          <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
           <h2>CTRL <GlitchText text="N3RD"/></h2>
         </div>}
         {activeSection === 'ABOUT' && <div className="flex items-center gap-1"> 
-          <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>
+          <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
           <h2>ABOUT <GlitchText text="ME"/></h2>
         </div>}
         {activeSection === 'CONNECT' && <div className="flex items-center gap-1"> 
-          <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>
+          <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
           <h2>CONNECT <GlitchText text="WITH"/> ME</h2>
         </div>}
         {activeSection === 'CREATIONS' && <div className="flex items-center gap-1"> 
-          <span className="text-4xl m-0 p-0 w-2 h-2 bg-primary rounded-full"></span>
+          <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
           <h2>MY CREATI<GlitchText text="ONS"/></h2>
         </div>}
     </header>

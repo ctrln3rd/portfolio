@@ -33,7 +33,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
         <motion.div
          className="fixed inset-0 flex flex-col items-center justify-center"
         >
-            <motion.svg width={svgWidth} height={svgWidth} viewBox={'0 0 100 100'}>
+            <motion.svg width={svgWidth} height={svgWidth} viewBox={'0 0 150 150'}>
                 <motion.circle 
                 cx={50} cy={50} r={40} stroke={'#ededed99'} 
                 strokeWidth={0.5} fill={'none'}
@@ -43,7 +43,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
 
             </motion.svg>
          <motion.div className="absolute flex flex-col gap-1 items-center text-xs text-nowrap uppercase" ref={textref}>
-            <div className="text-green-600">
+            <div className="text-teal-500">
                 C:&#47; U<GlitchText text="SE" effect='continuous'  stopDuration={0.3}/>R &#47; ctrln3rd &#62;
                 </div>
             <div>

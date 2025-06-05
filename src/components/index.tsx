@@ -3,6 +3,7 @@
 import React from 'react';
 import GlitchText from './glitch';
 import { motion } from 'framer-motion';
+import AsciiArt from './ascii';
 
 export default function Index() {
  
@@ -15,7 +16,7 @@ export default function Index() {
         animate={{opacity: 1, scale: 1}}
         transition={{duration: 0.5}}
         >
-         <motion.img
+        {/*<motion.img
          src='/hero-background.webp'
          className='w-full h-full object-contain cursor-pointer'
          initial={{filter: 'none'}}
@@ -36,7 +37,8 @@ export default function Index() {
             repeatType: 'mirror'
           }
          }}
-         />
+         />*/}
+        <AsciiArt />
 
         </motion.div>
         <div className='z-10 absolute top-[30%] left-[10%] max-sm:top-[20%]'>
@@ -44,7 +46,7 @@ export default function Index() {
         <p className="opacity-70">Web apps, bots, softwares, fun</p>
         </div>
         <div className='fixed flex flex-col items-start gap-2 z-50 bottom-0 left-0 pl-20 pb-8 text-base max-sm:pl-3'>
-          <h3>Hello Buddy....<br/> I'm <span className='text-primary'><GlitchText text='Austine' effect='one-time'/></span></h3>
+          <h3>Hello Buddy....<br/> I'm <span className='text-teal-600'><GlitchText text='Austine' effect='one-time'/></span></h3>
           <p className='opacity-70 uppercase'>{'['} De<GlitchText text='velo' effect='continuous' stopDuration={3}/>per {']'}</p>
         </div>
       

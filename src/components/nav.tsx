@@ -66,7 +66,7 @@ export default function Nav({setActiveSection,}: {setActiveSection: (section: st
             >
                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[50%] h-[50%]
                 border border-gray-500 rounded-full max-sm:w-[40%] max-sm:h-[40%]"></div>
-                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-primary rounded-full max-sm:w-[5px] max-sm:h-[5px]"
+                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-teal-500 rounded-full max-sm:w-[5px] max-sm:h-[5px]"
                 animate={{x: navItems[activeIndex]?.x  * size *0.9, y: navItems[activeIndex]?.y  * size *0.9}}
                 transition={{
                     type: 'spring',
@@ -74,7 +74,7 @@ export default function Nav({setActiveSection,}: {setActiveSection: (section: st
                     damping: 10
                 }}
                 ></motion.div>
-                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-secondary rounded-full max-sm:w-[5px] max-sm:h-[5px]"
+                <motion.div className="absolute translate-x-[-50%] translate-y-[-50%] w-2 h-2 bg-gray-300 rounded-full max-sm:w-[5px] max-sm:h-[5px]"
                 animate={{x: navItems[activeIndex]?.x  * size *0.3, y: navItems[activeIndex]?.y * size *0.3}}
                 transition={{
                     type: 'spring',
