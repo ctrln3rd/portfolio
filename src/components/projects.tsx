@@ -48,11 +48,11 @@ export default function Projects(){
 
 
             
-        <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3 text-lg">
+        <div className="fixed z-50 bottom-0 left-0 pl-20 pb-8 flex gap-3 max-sm:pl-3 text-xl">
             <button onClick={()=>swiperRef.current?.slidePrev()}
-                className="flex gap-1 items-center px-3 py-1 border border-primary border-opacity-50 rounded">&#8592;</button>
+                className="flex gap-1 items-center px-3 py-1 border border-teal-600 border-opacity-60 rounded">&#8592;</button>
             <button onClick={()=>swiperRef.current?.slideNext()}
-            className="flex gap-1 items-center px-3 py-1  border border-primary border-opacity-50 rounded">&#8594;</button>
+            className="flex gap-1 items-center px-3 py-1  border border-teal-600 border-opacity-60 rounded">&#8594;</button>
             </div>
             
         </>
