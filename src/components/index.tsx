@@ -4,43 +4,16 @@ import React from 'react';
 import GlitchText from './glitch';
 import { motion } from 'framer-motion';
 import AsciiArt from './ascii';
+import { useEffect, useState } from 'react';
 
 export default function Index() {
  
   return (
       <>
-        <motion.div className={`absolute inset-0 bg-center flex items-center justify-center w-full h-full
-         bg-contain bg-no-repeat 
-       `}
-        initial={{opacity: 0, scale: 0.95}}
-        animate={{opacity: 1, scale: 1}}
-        transition={{duration: 0.5}}
-        >
-        {/*<motion.img
-         src='/hero-background.webp'
-         className='w-full h-full object-contain cursor-pointer'
-         initial={{filter: 'none'}}
-         animate={{
-          filter: ['none', 'blur(2px)', 'none'],
-          x: [0, 4, -4, 2, -2, 0],
-          y: [0, -3, 3, -2, 2, 0],
-
-        }}
-        transition={{duration: 0.3, repeat: 5, repeatType: 'mirror'}}
-         whileHover={{
-          filter: ['none', 'blur(2px)', 'none'],
-          x: [0, 4, -4, 2, -2, 0],
-          y: [0, -3, 3, -2, 2, 0],
-          transition: {
-            repeat: 3,
-            duration: 0.3,
-            repeatType: 'mirror'
-          }
-         }}
-         />*/}
-        <AsciiArt />
-
-        </motion.div>
+        
+       <div className="absolute top-0 left-0 w-full h-full z-0">
+          <AsciiArt imageUrl="robot" className="w-full h-full"/>
+        </div>
         <div className='z-10 absolute top-[30%] left-[10%] max-sm:top-[20%]'>
         <h2 className="text-xl uppercase">SM<GlitchText text='AR' effect='one-time'/>T <GlitchText text='WE' effect='continuous' stopDuration={3}/>B<br/> AND <GlitchText text='AP' effect='continuous' stopDuration={3}/>PS</h2>
         <p className="opacity-70">Web apps, bots, softwares, fun</p>

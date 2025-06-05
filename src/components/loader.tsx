@@ -33,7 +33,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
         <motion.div
          className="fixed inset-0 flex flex-col items-center justify-center"
         >
-            <motion.svg width={svgWidth} height={svgWidth} viewBox={'0 0 150 150'}>
+            <motion.svg width={svgWidth} height={svgWidth} viewBox={'0 0 100 100'}>
                 <motion.circle 
                 cx={50} cy={50} r={40} stroke={'#ededed99'} 
                 strokeWidth={0.5} fill={'none'}

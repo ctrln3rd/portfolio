@@ -4,15 +4,44 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ASCII_CHARS = '@%#*+=-:. ';
+type Props = {
+  imageUrl: string;
+  width?: number; // Optional: override width
+  className?: string; // Optional: override wrapper styles
+};
 
-export default function AsciiArt() {
+
+export default function AsciiArt({ imageUrl, className = '' }: Props) {
   const [ascii, setAscii] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [dynamicWidth, setDynamicWidth] = useState<number | null>(null);
+    useEffect(() => {
+      const calculateWidth = () => {
+        const screenWidth = window.innerWidth;
+    
+        if (screenWidth < 400) {
+          setDynamicWidth(80); // mobile
+        } else if (screenWidth < 768) {
+          setDynamicWidth(100); // tablet
+        } else if (screenWidth < 1024) {
+          setDynamicWidth(140); // small laptop
+        } else {
+          setDynamicWidth(160); // desktop
+        }
+      };
+      calculateWidth(); // run on mount
+  
+      window.addEventListener('resize', calculateWidth);
+      return () => window.removeEventListener('resize', calculateWidth);
+    }, []);
+   
 
   useEffect(() => {
+    if(!dynamicWidth) return; // Wait for dynamicWidth to be set
+    if (!imageUrl) return; // Ensure imageUrl is provided
     const img = new Image();
-    img.src = '/ship.jpg'; // Replace with your image path
+    img.src = `/${imageUrl}.jpg`; // Replace with your image path
     img.crossOrigin = 'Anonymous';
 
     img.onload = () => {
@@ -21,7 +50,7 @@ export default function AsciiArt() {
       const ctx = canvas.getContext('2d')!;
 
       const containerWidth = container.offsetWidth || 100;
-      const width = Math.min(containerWidth, 120); // Optional max width
+      const width = Math.min(containerWidth, dynamicWidth); // Optional max width
       const scale = img.height / img.width;
       const height = Math.floor(width * scale * 0.55);
 
@@ -56,23 +85,30 @@ export default function AsciiArt() {
 
       setAscii(ascii);
     };
-  }, []);
+  }, [imageUrl, dynamicWidth]);
 
   return (
     <motion.div
-        initial={{ x: 0, y: 0 }}
-        animate={{ 
-            x: [0, -1, 1, -0.5, 0],
-            y: [0, 1, -1, 0.5, 0],
-            transition: { duration: 0.3, ease: 'easeInOut' },
+        initial={{filter: 'none'}}
+         animate={{
+          filter: ['none', 'blur(2px)', 'none'],
+          x: [0, 4, -4, 2, -2, 0],
+          y: [0, -3, 3, -2, 2, 0],
+
         }}
-        whileHover={{
-            x: [0, -2, 2, -1, 0],
-            y: [0, 2, -2, 1, 0],
-            transition: { duration: 0.2, ease: 'easeInOut', repeat: 2 },
-        }}
+        transition={{duration: 0.3, repeat: 5, repeatType: 'mirror'}}
+         whileHover={{
+          filter: ['none', 'blur(2px)', 'none'],
+          x: [0, 4, -4, 2, -2, 0],
+          y: [0, -3, 3, -2, 2, 0],
+          transition: {
+            repeat: 3,
+            duration: 0.3,
+            repeatType: 'mirror'
+          }
+         }}
         ref={containerRef}
-        className="overflow-hidden cursor-pointer flex items-center justify-center bg-transparent font-mono text-xs leading-tight p-2 text-teal-400 opacity-50 w-full max-w-full max-h-full h-full"
+        className={`overflow-hidden cursor-pointer flex items-center justify-center bg-transparent font-mono text-xs leading-tight p-2 text-teal-400 opacity-50 w-full max-w-full max-h-full h-full ${className}`}
         >
       <canvas ref={canvasRef} className="hidden" />
       <pre className="whitespace-pre break-words">{ascii}</pre>

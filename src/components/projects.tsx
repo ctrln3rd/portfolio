@@ -8,6 +8,7 @@ import {Navigation} from 'swiper/modules'
 import 'swiper/css';
 import 'swiper/css/navigation'
 import GlitchText from "./glitch";
+import AsciiArt from "./ascii";
 
 
 export default function Projects(){
@@ -24,6 +25,9 @@ export default function Projects(){
 
     return(
         <>
+            <div className="absolute top-0 left-0 w-full h-full z-0">
+                <AsciiArt imageUrl="robot1" width={100} className="w-full h-full"/>
+            </div>
             <Swiper
                modules={[Navigation]}
                initialSlide={1}
@@ -34,7 +38,7 @@ export default function Projects(){
                loop className="overflow-visible w-full items-center"
              >
             {projects.map((project, index)=>(
-                <SwiperSlide key={index} className="w-auto max-w-[40%] max-md:max-w-[60%] max-sm:max-w-[75%] flex justify-center">
+                <SwiperSlide key={index} className="w-auto max-w-[40%] max-md:max-w-[60%] max-sm:max-w-[75%] flex justify-center relative z-10" >
                     {({isActive})=>(
                         <ProjectCard {...project} isActive={isActive}/>
                     )}
@@ -81,9 +85,9 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             initial={{opacity: 0, scale: 0.8}}
             animate={isActive ? {opacity: 1, scale: 1, filter: 'none'} : {opacity: 0.5, scale: 0.9, filter: 'blur(1px)'}}
             transition={{duration: 0.5,ease: 'easeOut'}}
-            className="relative rounded-lg bg-card overflow-visible flex flex-col items-stretch px-8 py-5 max-sm:px-5 w-auto"
+            className="relative rounded-lg bg-card overflow-visible flex flex-col gap-1 items-stretch px-8 py-5 max-sm:px-5 w-auto bg-opacity-85"
             >
-            <div className="flex gap-3 pb-2">
+            <div className="flex gap-3 pb-1">
                 <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={title} effect="one-time" duration={0.5}/>) 
                 : <span>{title}</span>} </h3>
                    
