@@ -42,7 +42,7 @@ function Loader({onComplete}: {onComplete: ()=> void}){
                 />
 
             </motion.svg>
-         <motion.div className="absolute flex flex-col gap-1 items-center text-xs text-nowrap uppercase" ref={textref}>
+         <motion.div className="absolute flex flex-col gap-1 items-center text-sm text-nowrap uppercase" ref={textref}>
             <div className="text-teal-500">
                 C:&#47; U<GlitchText text="SE" effect='continuous'  stopDuration={0.3}/>R &#47; ctrln3rd &#62;
                 </div>

@@ -85,7 +85,7 @@ function ProjectCard({id, title, image, description, date, link, github, client,
             initial={{opacity: 0, scale: 0.8}}
             animate={isActive ? {opacity: 1, scale: 1, filter: 'none'} : {opacity: 0.5, scale: 0.9, filter: 'blur(1px)'}}
             transition={{duration: 0.5,ease: 'easeOut'}}
-            className="relative rounded-lg bg-card overflow-visible flex flex-col gap-1 items-stretch px-8 py-5 max-sm:px-5 w-auto bg-opacity-85"
+            className="relative rounded-lg bg-card overflow-visible flex flex-col gap-1 items-stretch px-8 py-5 max-sm:px-5 w-auto bg-opacity-95"
             >
             <div className="flex gap-3 pb-1">
                 <h3 className=" font-semibold text-lg max-sm:text-base">{isActive ? (<GlitchText text={title} effect="one-time" duration={0.5}/>) 
