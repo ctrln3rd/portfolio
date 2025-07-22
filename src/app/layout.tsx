@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     canonical: 'https://austinemark.netlify.app'
   },
   other: {
-    'google-site-verification': "LUkKqWSPj-9G4-wQcv2ohaT20kb7pKJqAv9eM24m2H8"
+    'google-site-verification': "kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0"
   }
 };
 
