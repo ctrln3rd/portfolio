@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images :  ['https://austinemark.netlify.app/preview.jpg']
   },
   alternates: {
-    canonical: 'https://austinemark.netlify.app'
+    canonical: 'https://austinemark.vercel.app'
   },
   other: {
     'google-site-verification': "kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0"

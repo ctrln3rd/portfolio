@@ -11,10 +11,10 @@ export default function Index() {
   return (
       <>
         
-       <div className="absolute top-0 left-0 w-full h-full z-0">
-          <AsciiArt imageUrl="robot" className="w-full h-full"/>
+       <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center z-0">
+          <AsciiArt imageUrl="saturn"/>
         </div>
-        <div className='z-10 absolute top-[30%] left-[10%] max-sm:top-[20%]'>
+        <div className='z-10 absolute top-[30%] left-[10%] max-sm:top-[15%]'>
         <h2 className="text-xl uppercase">SM<GlitchText text='AR' effect='one-time'/>T <GlitchText text='WE' effect='continuous' stopDuration={3}/>B<br/> AND <GlitchText text='AP' effect='continuous' stopDuration={3}/>PS</h2>
         <p className="opacity-70">Web apps, bots, softwares, fun</p>
         </div>

@@ -26,7 +26,7 @@ export default function About (){
   return (
     <>
     <div className="absolute top-0 left-0 w-full h-full z-0">
-      <AsciiArt imageUrl="saturn" className="w-full h-full"/>
+      {/*<AsciiArt imageUrl="saturn" className="w-full h-full"/>*/}
     </div>
     <div className="flex flex-col gap-4 max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[98%] px-7 py-5 max-sm:px-2 bg-card rounded-xl z-10 relative bg-opacity-80">
       {!istestims && <div>

@@ -26,7 +26,7 @@ export default function Projects(){
     return(
         <>
             <div className="absolute top-0 left-0 w-full h-full z-0">
-                <AsciiArt imageUrl="robot1" width={100} className="w-full h-full"/>
+                {/*<AsciiArt imageUrl="robot1" width={100} className="w-full h-full"/>*/}
             </div>
             <Swiper
                modules={[Navigation]}
