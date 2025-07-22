@@ -19,19 +19,19 @@ export const metadata: Metadata = {
   openGraph:{
     title: 'Austine | ctrlN3rd Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
-    url: 'https://austinemark.netlify.app',
+    url: 'https://ctrln3rd.vercel.app',
     siteName: 'Austine Mark',
     type: 'website',
-    images: ['https://austinemark.netlify.app/preview.jpg']
+    images: ['https://ctrln3rd.vercel.app/preview.jpg']
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Austine | ctrlN3rd Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
-    images :  ['https://austinemark.netlify.app/preview.jpg']
+    images :  ['https://ctrln3rd.vercel.app/preview.jpg']
   },
   alternates: {
-    canonical: 'https://austinemark.vercel.app'
+    canonical: 'https://ctrln3rd.vercel.app'
   },
   other: {
     'google-site-verification': "kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0"
