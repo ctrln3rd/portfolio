@@ -53,7 +53,7 @@ export default function Projects() {
   return (
     <div className="flex flex-col items-center gap-8 w-full">
       <div className="self-start text-sm max-sm:text-xs opacity-70 pl-[10%]">
-        <span className="text-teal-500">{activeIndex}/</span><span>{projects.length}</span>
+        <span className="text-teal-500">{activeIndex + 1}/</span><span>{projects.length}</span>
       </div>
       {/* Top info */}
       <div className="flex items-center gap-10">
