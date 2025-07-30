@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk,  Orbitron} from "next/font/google";
+import { Space_Grotesk,  Orbitron,} from "next/font/google";
 import "./globals.css";
 const grotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-grotesk'});
 const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   openGraph:{
     title: 'Austine | ctrlN3rd Developer',
     description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
-    url: 'https://ctrln3rd.vercel.app',
+    url: 'https://austinemark.vercel.app',
     siteName: 'Austine Mark',
     type: 'website',
-    images: ['https://ctrln3rd.vercel.app/preview.jpg']
+    images: ['https://austinemark.vercel.app/preview.jpg']
   },
   twitter: {
     card: 'summary_large_image',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images :  ['https://ctrln3rd.vercel.app/preview.jpg']
   },
   alternates: {
-    canonical: 'https://ctrln3rd.vercel.app'
+    canonical: 'https://austinemark.vercel.app'
   },
   other: {
     'google-site-verification': "kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0"

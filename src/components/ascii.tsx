@@ -149,7 +149,7 @@ export default function AsciiArt({ imageUrl, className = '' }: Props) {
     animate={controls}
     onHoverStart={() => triggerGlitch()} // ✅ Triggers your glitch function
     whileHover={{ scale: 1.02 }} // optional: add subtle animation
-    className={`relative overflow-hidden cursor-pointer flex items-center justify-center font-mono text-xs leading-tight p-2 w-full max-w-full max-h-full h-full text-gray-400/80 opacity-80 ${className}`}
+    className={`relative overflow-hidden cursor-pointer flex items-center justify-center font-mono text-xs leading-tight p-2 w-full max-w-full max-h-full h-full text-gray-400/ opacity-80 ${className}`}
   >
 
       <canvas ref={canvasRef} className="hidden" />

@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 
 const sections ={
   INDEX: dynamic(()=> import("@/components/index")),
-  CREATIONS: dynamic(()=> import("@/components/projects")),
+  CREATIONS: dynamic(()=> import("@/components/creations")),
   ABOUT: dynamic(()=> import("@/components/about")),
   CONNECT: dynamic(()=> import("@/components/connect")),
 }
