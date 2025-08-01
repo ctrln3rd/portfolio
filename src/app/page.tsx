@@ -39,7 +39,10 @@ export default function HomePage() {
 
     {!isLoading && <>
     <header className="fixed inset-0 flex flex-row items-center justify-between w-full h-fit px-4 z-50">
-        <h1 className="font-semibold text-3xl">AM</h1>
+        <div className="flex gap-10 items-center uppercase max-sm:gap-3">
+          <h1 className="font-semibold text-3xl">A</h1>
+          <h3 className="text-teal-600 font-semibold">{"[ "}<GlitchText text='Austine' effect='one-time'/> Mark {" ]"}</h3>
+        </div>
         {activeSection === 'INDEX' && <div className="flex items-center gap-1"> 
           <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
           <h2>CTRL <GlitchText text="N3RD"/></h2>
@@ -50,7 +53,7 @@ export default function HomePage() {
         </div>}
         {activeSection === 'CONNECT' && <div className="flex items-center gap-1"> 
           <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>
-          <h2>CONNECT <GlitchText text="WITH"/> ME</h2>
+          <h2>CON<GlitchText text="NE"/>CT ME</h2>
         </div>}
         {activeSection === 'CREATIONS' && <div className="flex items-center gap-1"> 
           <span className="text-4xl m-0 p-0 w-2 h-2 bg-teal-500 rounded-full"></span>

@@ -5,6 +5,7 @@ import useTestimonials from "@/store/testimonials";
 import { motion } from "framer-motion";
 import GlitchText from "./glitch";
 import AsciiArt from "./ascii";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -31,19 +32,24 @@ export default function About (){
     <div className="flex flex-col gap-4 max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[98%] px-7 py-5 max-sm:px-2 bg-card rounded-xl z-10 relative bg-opacity-80">
       {!istestims && <div>
         <div className={`flex ${fullImage ? 'flex-col' : 'flex-row'} items-center gap-3`}>
-          <img
-          src="/me.webp"
-          className={`rounded-full aspect-square 
-            ${!fullImage ? 'w-[5dvw] max-md:w-[10dvw] max-sm:w-[15dvw]':'w-[30dvw] max-md:w-[45dvw] max-sm:w-[60dvw]'}`}
-          />
+          <div className={`relative rounded-full aspect-square 
+            ${!fullImage ? 'w-[5dvw] max-md:w-[10dvw] max-sm:w-[15dvw]':'w-[30dvw] max-md:w-[45dvw] max-sm:w-[60dvw]'}`}>
+            <Image
+            src="/me.webp"
+            alt="me"
+            fill
+            className="rounded-full"
+            />
+          </div>
             <button onClick={()=>setFullImage(!fullImage)} className="lowercase opacity-80 outline-none">
               &#91; {!fullImage ? (<span>Z<GlitchText text="OO"/>M</span>): 
             (<span>SH<GlitchText text="RI"/>NK</span>)} &#93;</button>
             </div>
             {!fullImage && <>
             <p className="mt-3">
-              Hi, I'm Austine Mark <span className="opacity-70">&#91; ctrlN3rd &#93;</span>, a developer based in Kenya but work worldwide.
-              Passionate about building intelligent solutions that enhance user experience and automate processes.
+              Hi, I’m Austine Mark [ctrlN3rd] — a future-forward developer building meaningful tech that connects emotionally and scales globally.
+              Based in Kenya, I work with clients around the world to bring clarity, intelligence, and aesthetic value to digital products. 
+              My goal isn't just to build apps — it’s to create experiences that users feel, remember, and trust.
             </p>
             <div className="flex  flex-col items-start gap-3">
               I specialize in:

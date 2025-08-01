@@ -67,7 +67,7 @@ export default function Projects() {
       </div>}
       </div>
 
-      {/* Carousel */}
+      {/* Carousel */} 
       <div className="w-full flex justify-center overflow-hidden">
         <div className="flex items-stretch gap-4 transition-all duration-300">
           {Array.from({ length: visibleCount }).map((_, idx) => {

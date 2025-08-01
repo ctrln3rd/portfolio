@@ -5,9 +5,9 @@ const grotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-grotesk'});
 const orbitron = Orbitron({subsets : ['latin'], variable: '--font-orbitron'});
 
 export const metadata: Metadata = {
-  title: 'Austine | ctrlN3rd Developer'
+  title: 'ctrlN3rd — Building Tomorrow’s Web'
   ,
-  description: "A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work",
+  description: "Futuristic full stack developer based in Kenya, building intelligent, user-focused web and AI solutions for global impact. Explore sleek, scalable apps by ctrlN3rd.",
   keywords: ['web development', 'AI', 'Machine learning', 'cloud computing', 'austine mark', 'nextjs developer', 'ctrln3rd', 'ctrl nerd',
     'control',  'nerd', 'best portfolio website', 'frontend developer', 'tech enthusiast', 
     'computer science', 'muranga university', 'young coder'],
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png'
   },
   openGraph:{
-    title: 'Austine | ctrlN3rd Developer',
-    description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
+    title: 'ctrlN3rd — Building Tomorrow’s Web',
+    description: 'Futuristic full stack developer based in Kenya, building intelligent, user-focused web and AI solutions for global impact. Explore sleek, scalable apps by ctrlN3rd.',
     url: 'https://austinemark.vercel.app',
     siteName: 'Austine Mark',
     type: 'website',
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Austine | ctrlN3rd Developer',
-    description: 'A developer using AI and tech enthusiast from Kenya. Love creating futuristic software experiences that work',
-    images :  ['https://ctrln3rd.vercel.app/preview.jpg']
+    title: 'ctrlN3rd — Building Tomorrow’s Web',
+    description: 'Futuristic full stack developer based in Kenya, building intelligent, user-focused web and AI solutions for global impact. Explore sleek, scalable apps by ctrlN3rd.',
+    images :  ['https://austinemark.vercel.app/preview.jpg']
   },
   alternates: {
     canonical: 'https://austinemark.vercel.app'
