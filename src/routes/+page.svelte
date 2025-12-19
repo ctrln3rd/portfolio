@@ -8,7 +8,7 @@
 
 <div class="p-5 md:p-10 relative w-full h-full">
     <div class="flex flex-col items-start gap-2 pt-10">
-      <img src="/me1.png" alt="me" 
+      <img src="/me.jpg" alt="me" 
         class="w-32 lg:w-64 aspect-sqaure rounded-full border"/>
       <h1 class="text-3xl font-bold">Hello: </h1>
       <p>I'm <span use:glitch={{mode: "loop", speed: 100, duration: 2500}}
