@@ -54,13 +54,13 @@
                          class={`w-full px-5 transition-opacity duration-300 ${activeIndex === i ? 'opacity-100' : 'opacity-30'}`}>
                         
                         <div class="w-full flex gap-1 items-center">
-                            <span class="w-1/3 lg:w-1/2 bg-black/70 h-1"></span>
+                            <span class="w-1/3 lg:w-1/2 bg-gray-100 h-1"></span>
                             <span use:glitch={{mode: "loop", speed: 100, duration: 3000}} class="font-bold text-lg">#0{i+1}</span>
                             <span>({project.date})</span>
                         </div>
                         
                         <div>
-                            <h3 class="font-bold italic text-xl uppercase">{project.title}</h3>
+                            <h3 class="font-bold italic text-xl text-black uppercase">{project.title}</h3>
                             <div class="mb-2">
                                 {project.description}..
                                 <a href={project.link} class="font-bold cursor-pointer hover:bg-gray-400">(visit)</a>

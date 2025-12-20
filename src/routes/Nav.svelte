@@ -14,7 +14,7 @@
     {#each navLinks as link}
         <a href={link.href}
         class:opacity-50={$page.url.pathname === link.href}
-        class="flex gap-1 items-center" > 
+        class="flex gap-1 items-center font-extrabold" > 
         {#if $page.url.pathname === link.href}
         <MoveRight size="20" color="#000000" strokeWidth="1.5"/>
         {/if}

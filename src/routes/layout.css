@@ -3,5 +3,10 @@
 
 
 body{
-    background-color: black;
+    background-color: #111111;
+    color: white;
+    font-weight: 600;
+}
+h1, h2, h3{
+    font-weight: 900;
 }
