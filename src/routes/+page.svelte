@@ -23,7 +23,7 @@
       <p>I'm <span use:glitch={{mode: "loop", speed: 100, duration: 2500}}
         class="font-extrabold text-black text-lg">Austine</span> I will help you in:</p>
       {#each skills as  skill}
-        <div class="border-b border-b-[#111111]">
+        <div class="border-b border-b-[#eeeeee]">
           <span class="font-bold">{skill.title}</span>
           <!--<MoveRight size="24" strokeWidth="1.5"/>-->[{skill.sub.join(", ")}]</div>
       {/each}

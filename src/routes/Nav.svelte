@@ -16,7 +16,7 @@
         class:opacity-50={$page.url.pathname === link.href}
         class="flex gap-1 items-center font-extrabold" > 
         {#if $page.url.pathname === link.href}
-        <MoveRight size="20" color="#000000" strokeWidth="1.5"/>
+        <MoveRight size="20" color="#ffffff" strokeWidth="1.5"/>
         {/if}
          <span use:glitch={{mode:"hover", speed: 100}}>{link.name}</span></a>
     {/each}

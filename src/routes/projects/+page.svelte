@@ -93,10 +93,10 @@
     </div>
 
     {#if zoomedImage}
-            <div class="z-40 fixed inset-1/2 -translate-1/2 bg-white border border-black shadow-2xl  max-w-4xl aspect-3/2 w-1/2 overflow-hidden
+            <div class="z-40 fixed inset-1/2 -translate-1/2 bg-white border border-black shadow-2xl  max-w-4xl aspect-3/2 w-7/8 md:w-3/4 lg:w-1/2 overflow-hidden
             flex flex-col items-center gap-2 rounded-lg p-5">
                 <button on:click={closeZoom} 
-                        class="self-end">
+                        class="self-end text-black cursor-pointer">
                     <X size={20} />
                 </button>
 
