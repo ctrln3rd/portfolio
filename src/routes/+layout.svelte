@@ -1,6 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.ico';
 	import Nav from './Nav.svelte';
 	import Connect from './connect.svelte';
 	import Grain from './grain.svelte';
@@ -16,7 +16,7 @@
 		content="Futuristic full stack developer based in Kenya, building intelligent, user-focused web and AI solutions for global impact. Explore sleek, scalable apps by ctrlN3rd."
 	/>
 	<meta name="google-site-verification" content="kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0" />
-	<link rel="icon" type="image/x-icon" href="%sveltekit.assets%/favicon.ico" />
+	<link rel="icon" type="image/x-icon" href={favicon} />
 </svelte:head>
 <div
 	class="absolute inset-[50%] size-[97%] -translate-[50%] rounded-xl bg-[#4e4e4e] md:size-[94%] lg:size-[90%]"
