@@ -9,8 +9,7 @@
 	<div class="flex flex-row-reverse gap-5">
 		<!--<a href="https://github.com/ctrln3rd" use:glitch={{mode: "hover"}}
     class="underline">discord</a>-->
-		<a href="https://github.com/ctrln3rd" use:glitch={{ mode: 'hover' }} class="underline"
-			>linkedin</a
+		<a href="https://github.com/ctrln3rd" use:glitch={{ mode: 'hover' }} class="underline">github</a
 		>
 	</div>
 </div>
