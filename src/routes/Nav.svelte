@@ -1,24 +1,32 @@
 <script lang="ts">
-    import { page } from "$app/stores";
-    import { MoveRight } from "lucide-svelte";
-    import { glitch } from "$lib/glitch";
-
-    const navLinks = [
-        { name: "about", href: "/" },
-        { name: "projects", href: "/projects" },
-    ];
-    
+	import { glitch } from '$lib/glitch';
+	import { appState } from '$lib/state.svelte';
+	import { ChevronDown, ChevronUp } from 'lucide-svelte';
 </script>
 
-<nav class="fixed top-3 right-3 lg:top-10 lg:right-10 flex flex-col items-end gap-1 z-30">
-    {#each navLinks as link}
-        <a href={link.href}
-        class:opacity-50={$page.url.pathname === link.href}
-        class="flex gap-1 items-center font-extrabold" > 
-        {#if $page.url.pathname === link.href}
-        <MoveRight size="20" color="#ffffff" strokeWidth="1.5"/>
-        {/if}
-         <span use:glitch={{mode:"hover", speed: 100}}>{link.name}</span></a>
-    {/each}
-</nav>
-
+<div class="fixed bottom-5 flex w-full items-center justify-between px-2 py-2 lg:px-10">
+	<div class="">
+		<button
+			onclick={() => appState.toggle()}
+			class="flex cursor-pointer items-center gap-2 font-extrabold text-white transition-colors hover:text-gray-950"
+		>
+			{#if appState.activeSection === 'about'}
+				projects <ChevronDown class="w-7" />
+			{:else}
+				about <ChevronUp class="w-7" />
+			{/if}
+		</button>
+	</div>
+	<div class="z-30 flex flex-col items-end">
+		<h3 class="text-lg font-bold lg:text-2xl">
+			Let's Co<span use:glitch={{ mode: 'loop', speed: 100, duration: 3000 }}>nn</span>ect:
+		</h3>
+		<div class="flex flex-row-reverse gap-5">
+			<!--<a href="https://github.com/ctrln3rd" use:glitch={{mode: "hover"}}
+    class="underline">discord</a>-->
+			<a href="https://github.com/ctrln3rd" use:glitch={{ mode: 'hover' }} class="underline"
+				>github</a
+			>
+		</div>
+	</div>
+</div>
