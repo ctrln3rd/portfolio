@@ -3,12 +3,9 @@
 
 body {
 	/* 1. Layout */
-	@apply grid h-dvh w-dvw grid-rows-8 gap-0 overflow-hidden font-light text-gray-300;
+	@apply grid h-dvh w-dvw grid-rows-8 gap-0 overflow-hidden text-sm font-light text-gray-300;
 	font-family: 'Space Mono', monospace;
-	/* 2. Colors & Texture */
-	/* Layer 1: SVG Noise Filter (Grain) */
-	/* Layer 2: Radial Gradient (Spotlight effect) */
-	/* Layer 3: The Base Dark Color (#0a0a0a matches the deep black in your image) */
+
 	background:
 		url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
 		radial-gradient(circle at 50% 50%, #1a1c1c 0%, #0a0a0a 100%);
@@ -22,4 +19,7 @@ h1,
 h2,
 h3 {
 	font-weight: 900;
+}
+.btn {
+	@apply bg-linear-to-b from-gray-500/20 from-70% to-transparent to-70%;
 }

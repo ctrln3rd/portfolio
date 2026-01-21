@@ -36,7 +36,7 @@
 	</div>
 
 	<div
-		class="col-span-3 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden border-x border-y border-x-gray-100/20 pb-10"
+		class="col-span-3 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden border-x border-x-gray-100/20 pb-10"
 	>
 		<div class="flex items-start gap-1 px-[20%] leading-8">
 			<span class="mt-3 aspect-square w-8 bg-amber-300 lg:w-4"></span>

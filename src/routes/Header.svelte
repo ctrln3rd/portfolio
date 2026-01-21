@@ -7,9 +7,9 @@
 <div class="grid w-full grid-cols-5">
 	<div class="flex items-center justify-center font-bold uppercase">
 		{#if appState.activeSection === 'about'}
-			About
+			About me
 		{:else if appState.activeSection === 'projects'}
-			Projects
+			my Projects
 		{:else}
 			blank
 		{/if}

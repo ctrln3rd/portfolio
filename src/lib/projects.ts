@@ -16,5 +16,14 @@ export const projects: Project[] = [
 		images: ['vitals-widget', 'vitals-widget1', 'vitals-widget2'],
 		date: 'dec, 2025',
 		link: 'https://extensions.gnome.org/extension/9072/vitals-widget/'
+	},
+	{
+		id: '002',
+		title: 'vita',
+		description:
+			'view cpu usage, ram , gpu and tempearature anywhere on your desktop.An extension For linux gnome users version 45+. Has various settings to help you style it the way you want. Built with typescript and xml and complied to javascript',
+		images: ['preview1', 'preview1', 'preview1'],
+		date: 'dec, 2025',
+		link: 'https://extensions.gnome.org/extension/9072/vitals-widget/'
 	}
 ];
