@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/space-mono':
+        specifier: ^5.2.9
+        version: 5.2.9
       '@svelte-web-fonts/google':
         specifier: ^1.0.4
         version: 1.0.4
@@ -215,6 +218,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/space-mono@5.2.9':
+    resolution: {integrity: sha512-b61faFOHEISQ/pD25G+cfGY9o/WW6lRv6hBQQfpWvEJ4y1V+S4gmth95EVyBE2VL3qDYHeVQ8nBzrplzdXTDDg==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -963,6 +969,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.2':
     optional: true
+
+  '@fontsource/space-mono@5.2.9': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:

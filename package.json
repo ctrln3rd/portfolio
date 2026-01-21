@@ -29,6 +29,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"@fontsource/space-mono": "^5.2.9",
 		"@svelte-web-fonts/google": "^1.0.4",
 		"embla-carousel-svelte": "^8.6.0",
 		"lucide-svelte": "^0.562.0"

@@ -1,122 +1,119 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
-	import { ChevronDown, ChevronUp, X } from 'lucide-svelte'; // Added X icon
-	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import { ChevronDown, ChevronUp, X } from 'lucide-svelte';
 	import { glitch } from '$lib/glitch';
+	import { fade } from 'svelte/transition';
 
-	let emblaApi: any;
-	let activeIndex = 1;
+	let activeIndex = $state(0); // Using Svelte 5 state
+	let zoomedImage = $state<string | null>(null);
 
-	let options = {
-		align: 'start',
-		containScroll: false,
-		loop: true,
-		axis: 'y',
-		startIndex: 1
-	};
+	// Derived current project
+	const project = $derived(projects[activeIndex]);
 
-	let projectH: number;
-	let viewportH: number;
+	// truncate
+	const maxLength = 250;
 
-	// State for the zoomed image
-	let zoomedImage: string | null = null;
+	const displayedDescription = $derived(
+		project.description.length > maxLength
+			? project.description.slice(0, maxLength) + '...'
+			: project.description
+	);
 
-	const onInit = (event: any) => {
-		emblaApi = event.detail;
-		emblaApi.on('select', updateActiveIndex);
-		updateActiveIndex();
-	};
+	// Looping Navigation Logic
+	function next() {
+		activeIndex = (activeIndex + 1) % projects.length;
+	}
 
-	const updateActiveIndex = () => {
-		if (!emblaApi) return;
-		activeIndex = emblaApi.selectedScrollSnap();
-	};
+	function prev() {
+		activeIndex = (activeIndex - 1 + projects.length) % projects.length;
+	}
 
-	const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-	const scrollNext = () => emblaApi && emblaApi.scrollNext();
-
-	// Close helper
-	const closeZoom = () => (zoomedImage = null);
+	function closeZoom() {
+		zoomedImage = null;
+	}
 </script>
 
-<svelte:window bind:innerHeight={viewportH} />
-
-<div class="flex h-full w-full flex-col items-start gap-5 p-2 md:p-5 lg:gap-10 lg:p-10">
-	<h2 class="text-2xl font-semibold uppercase italic">Projects</h2>
-
-	<div class="flex h-5/7 w-full items-center justify-center gap-7 pt-16 md:h-3/5 lg:h-1/2">
-		<div
-			use:emblaCarouselSvelte={{ options } as any}
-			on:emblaInit={onInit}
-			class="embla h-full w-9/10 overflow-hidden lg:w-6/7"
-		>
-			<div class="flex w-full flex-col items-stretch gap-10">
-				{#each projects as project, i}
-					<div
-						bind:clientHeight={projectH}
-						class={`w-full px-5 transition-opacity duration-300 ${activeIndex === i ? 'opacity-100' : 'opacity-30'}`}
-					>
-						<div class="flex w-full items-center gap-1">
-							<span class="h-1 w-1/3 bg-gray-100 lg:w-1/2"></span>
-							<span
-								use:glitch={{ mode: 'loop', speed: 100, duration: 3000 }}
-								class="text-lg font-bold">#0{i + 1}</span
-							>
-							<span>({project.date})</span>
-						</div>
-
-						<div>
-							<h3 class="text-xl font-bold text-black uppercase italic">{project.title}</h3>
-							<div class="mb-2">
-								{project.description}..
-								<a
-									href={project.link}
-									class="cursor-pointer font-extrabold text-white hover:bg-gray-400">(visit)</a
-								>
-							</div>
-							{#if project.images}
-								<div class="flex">
-									{#each project.images as projImage, i}
-										<button on:click={() => (zoomedImage = projImage || null)} class="block">
-											<img
-												src={`/projects/${projImage}.jpg`}
-												alt={`#00${i}`}
-												class="aspect-3/1 w-32 cursor-zoom-in border border-black/10 object-cover grayscale transition-all hover:grayscale-0"
-											/>
-										</button>
-									{/each}
-								</div>
-							{/if}
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<div class="flex flex-col gap-5">
-			<button on:click={scrollPrev} class="cursor-pointer p-1 hover:border">
-				<ChevronUp class="aspect-square w-5 stroke-1 lg:w-7 lg:stroke-[1.5]" />
-			</button>
-			<button on:click={scrollNext} class="cursor-pointer p-1 hover:border">
-				<ChevronDown class="aspect-square w-5 stroke-1 lg:w-7 lg:stroke-[1.5]" />
-			</button>
-		</div>
+<div class="grid h-full w-full grid-cols-5">
+	<div class="flex flex-col items-start justify-start gap-4 p-1 lg:p-3">
+		<span class="font-mono text-3xl font-bold">
+			#0{activeIndex + 1}
+		</span>
+		<h2 class="leading-none font-bold uppercase opacity-70">
+			{project.title}
+		</h2>
+		<p class="mt-2 flex w-full items-center gap-0.5 font-mono text-xs text-gray-400">
+			<span class="h-1 w-1/3 bg-stone-400/30"></span>({project.date})
+		</p>
 	</div>
 
-	{#if zoomedImage}
-		<div
-			class="fixed inset-1/2 z-40 flex aspect-3/2 w-7/8 max-w-4xl -translate-1/2 flex-col items-center gap-2 overflow-hidden rounded-lg border
-            border-black bg-white p-5 shadow-2xl md:w-3/4 lg:w-1/2"
-		>
-			<button on:click={closeZoom} class="cursor-pointer self-end text-black">
-				<X size={20} />
-			</button>
+	<div class="col-span-3 flex items-center overflow-hidden border-x border-x-gray-100/20">
+		{#key activeIndex}
+			<div in:fade={{ duration: 400 }} class="flex w-full flex-col items-center gap-3">
+				<div class="flex items-start gap-px py-2 pr-1 text-start leading-10 text-gray-300 lg:pr-4">
+					<span class="mt-5 h-0.5 w-1/4 bg-gray-200/35"></span>
+					<span class="">{displayedDescription}</span>
+				</div>
+				{#if project.images}
+					<div class="flex w-full flex-wrap justify-center gap-px">
+						{#each project.images as img, i}
+							<button
+								onclick={() => (zoomedImage = img)}
+								class="group max-w-[35%] flex-1 basis-[calc(25%-1rem)] overflow-hidden"
+							>
+								<img
+									src={`/projects/${img}.jpg`}
+									alt={img}
+									class="aspect-4/1 w-full cursor-zoom-in border border-white/10 object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+								/>
+							</button>
+						{/each}
+					</div>
+				{/if}
+				<div class="flex w-full items-center justify-end gap-1">
+					<a
+						href={project.link}
+						class="px-1 font-bold text-white transition-colors hover:bg-white hover:text-black"
+					>
+						(visit)
+					</a>
+					<span class="h-0.5 w-1/12 bg-gray-200/35 lg:w-1/6"></span>
+				</div>
+			</div>
+		{/key}
+	</div>
 
-			<img
-				src={`/projects/${zoomedImage}.jpg`}
-				alt="no pic to show"
-				class="h-full w-full object-cover"
-			/>
-		</div>
-	{/if}
+	<div class="flex flex-col items-center justify-center gap-8">
+		<button
+			onclick={prev}
+			class="cursor-pointer transition-colors hover:bg-white/5 disabled:opacity-20"
+			disabled={projects.length < 2}
+		>
+			prev
+			<!--<ChevronUp size={32} strokeWidth={1} />-->
+		</button>
+		<span class="h-1/6 w-1 bg-stone-300/20"></span>
+		<button
+			onclick={next}
+			class="cursor-pointer transition-colors hover:bg-white/5 disabled:opacity-20"
+			disabled={projects.length < 2}
+		>
+			<!--<ChevronDown size={32} strokeWidth={1} />-->
+			next
+		</button>
+	</div>
 </div>
+
+{#if zoomedImage}
+	<div
+		class="fixed inset-1/2 z-50 flex aspect-square w-1/2 -translate-1/2 items-center justify-center bg-gray-500 p-10"
+	>
+		<button onclick={closeZoom} class="absolute top-10 right-10 text-white">
+			<X size={40} />
+		</button>
+		<img
+			src={`/projects/${zoomedImage}.jpg`}
+			alt="zoomed"
+			class="max-h-full max-w-full object-contain"
+		/>
+	</div>
+{/if}
