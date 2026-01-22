@@ -14,8 +14,7 @@
 		name="description"
 		content="Futuristic full stack developer based in Kenya, building intelligent, user-focused web and AI solutions for global impact. Explore sleek, scalable apps by ctrlN3rd."
 	/>
-	<meta name="google-site-verification" content="kIqMIUYkSdHooeSR7HbDCtxEpSPSkqaY-ycMluEo6v0" />
-
+	<meta name="google-site-verification" content="wGnWdxJW0n_0iN3_8aVAI500jWHCermXzlnXD19kudg" />
 	<link rel="icon" type="image/x-icon" href={favicon} />
 </svelte:head>
 
